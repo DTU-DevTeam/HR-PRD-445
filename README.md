@@ -1,5 +1,5 @@
 📌 Project Overview:
-The Human Resource Management Dashboard (HRMD) is a web-based solution designed to integrate HR & Payroll Systems, improving operational efficiency, data accuracy, and decision-making.
+The Human Resource Management Dashboard (HR&PRMD) is a web-based solution designed to integrate HR & Payroll Systems, improving operational efficiency, data accuracy, and decision-making.
 
 🎨 Front-end Development:
 
