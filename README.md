@@ -4,7 +4,7 @@ The Human Resource Management Dashboard (HR&PRMD) is a web-based solution design
 🎨 Front-end Development:
 
 🔹 My Role: Front-end Developer
-As a Front-end Developer, I am responsible for designing and implementing the user interface (UI) for the HRMD. My tasks include:
+As a Front-end Developer, I am responsible for designing and implementing the user interface (UI) for the HR&PRMD. My tasks include:
 - Developing responsive, user-friendly interfaces using ASP.NET Web Forms.
 - Utilizing Bootstrap 5 and Tailwind CSS for enhanced UI/UX.
 - Integrating DevExpress for ASP.NET WebForms for rich UI components.
