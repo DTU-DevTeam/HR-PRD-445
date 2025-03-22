@@ -35,7 +35,8 @@ The Human Resource Management Dashboard (HR&PRMD) is a web-based platform design
 - Ensure data accuracy and synchronization for faster decision-making.
 - Provide real-time reports and analytics for better strategic planning.
 
-📅 Development Roadmap
+📅 Development Roadmap:
+
 🔹 Week 1-2 – Requirement analysis & UI design.
 
 🔹 Week 3-5 – Develop API integration between HR & Payroll.
