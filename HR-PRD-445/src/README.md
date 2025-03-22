@@ -7,10 +7,15 @@ The Human Resource Management Dashboard (HR&PRMD) is a web-based platform design
 🔥 Key Features:
 
 ✅ Employee Management – Add, edit, search employees, and synchronize data with the Payroll system.
+
 ✅ Payroll Management – View salary details, bonuses, deductions, and monthly salary history.
+
 ✅ Department & Position Management – Organize and update company departments and job positions.
+
 ✅ Reports & Analytics – Generate insightful charts for HR, Payroll, and shareholder dividends.
+
 ✅ Alerts & Notifications – Work anniversary reminders, leave policy violations, and payroll inconsistencies.
+
 ✅ Security & Role-Based Access – Secure authentication and role-based permissions (Admin, HR, Payroll, Employee).
 
 🚀 Technology Stack:
@@ -32,8 +37,11 @@ The Human Resource Management Dashboard (HR&PRMD) is a web-based platform design
 
 📅 Development Roadmap
 🔹 Week 1-2 – Requirement analysis & UI design.
+
 🔹 Week 3-5 – Develop API integration between HR & Payroll.
+
 🔹 Week 6-8 – Implement and optimize UI/UX.
+
 🔹 Week 9-10 – Testing, deployment, and final adjustments.
 
 /_Author & Made by: Project Team 6_/
