@@ -1,18 +1,25 @@
-📌 Project Overview:
-The Human Resource Management Dashboard (HR&PRMD) is a web-based solution designed to integrate HR & Payroll Systems, improving operational efficiency, data accuracy, and decision-making.
+🏢 Human Resource Management Dashboard (HR&PRMD)
 
-🎨 Front-end Development:
+📌 Introduction:
 
-🔹 My Role: Front-end Developer
-As a Front-end Developer, I am responsible for designing and implementing the user interface (UI) for the HR&PRMD. My tasks include:
-- Developing responsive, user-friendly interfaces using ASP.NET Web Forms.
-- Utilizing Bootstrap 5 and Tailwind CSS for enhanced UI/UX.
-- Integrating DevExpress for ASP.NET WebForms for rich UI components.
-- Managing state using ViewState + Session Storage.
-- Calling APIs efficiently using Axios / Fetch API.
-- Ensuring compatibility and performance optimization across different devices and browsers.
+The Human Resource Management Dashboard (HR&PRMD) is a web-based platform designed to streamline HR and Payroll management. It aims to resolve challenges such as manual data consolidation, data inconsistency, and limited reporting capabilities between existing HR and Payroll systems.
 
-🔹 Tech Stack:
+🔥 Key Features:
+
+✅ Employee Management – Add, edit, search employees, and synchronize data with the Payroll system.
+
+✅ Payroll Management – View salary details, bonuses, deductions, and monthly salary history.
+
+✅ Department & Position Management – Organize and update company departments and job positions.
+
+✅ Reports & Analytics – Generate insightful charts for HR, Payroll, and shareholder dividends.
+
+✅ Alerts & Notifications – Work anniversary reminders, leave policy violations, and payroll inconsistencies.
+
+✅ Security & Role-Based Access – Secure authentication and role-based permissions (Admin, HR, Payroll, Employee).
+
+🚀 Technology Stack:
+
 - Front-end framework: ASP.NET Web Forms
 - Responsive design: Bootstrap 5
 - UI customization: Tailwind CSS
@@ -20,15 +27,22 @@ As a Front-end Developer, I am responsible for designing and implementing the us
 - State management: ViewState + Session Storage
 - API communication: Axios / Fetch API
 - Development environment: Visual Studio Code
-  
-🔹 Key Responsibilities:
-- Implementing Dashboard UI with interactive elements.
-- Developing employee management, payroll tracking, and report visualization pages.
-- Ensuring seamless data synchronization with the backend.
-- Optimizing the UI for performance, accessibility, and responsiveness.
-- Collaborating with backend developers to define API endpoints.
-  
-🚀 Project Goal:
-The HRMD aims to streamline HR and Payroll operations, offering a centralized and automated system for employee and salary management.
 
-/**************************************Author: Le Minh Tuan (Front-end Developer)**********************************/
+🎯 Project Goals:
+
+- Seamlessly integrate HR and Payroll systems without disrupting existing operations.
+- Automate HR management processes to reduce manual effort.
+- Ensure data accuracy and synchronization for faster decision-making.
+- Provide real-time reports and analytics for better strategic planning.
+
+📅 Development Roadmap:
+
+🔹 Week 1-2 – Requirement analysis & UI design.
+
+🔹 Week 3-5 – Develop API integration between HR & Payroll.
+
+🔹 Week 6-8 – Implement and optimize UI/UX.
+
+🔹 Week 9-10 – Testing, deployment, and final adjustments.
+
+/_Author & Made by: Project Team 6_/
