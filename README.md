@@ -1,48 +1,53 @@
-🏢 Human Resource Management Dashboard (HR&PRMD)
+🏢 Human Resources & Payroll Management Dashboard (HR&PRMD):
 
-📌 Introduction:
+📌 Overview:
 
-The Human Resource Management Dashboard (HR&PRMD) is a web-based platform designed to streamline HR and Payroll management. It aims to resolve challenges such as manual data consolidation, data inconsistency, and limited reporting capabilities between existing HR and Payroll systems.
+HR&PRMD is a web-based platform designed to integrate Human Resource (HR) and Payroll systems into a unified dashboard, ensuring efficient employee management, payroll processing, and financial reporting. The system aims to improve operational efficiency, reduce manual data consolidation, and enhance real-time data accuracy.
 
-🔥 Key Features:
+🔥 Table of Contents:
 
-✅ Employee Management – Add, edit, search employees, and synchronize data with the Payroll system.
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-✅ Payroll Management – View salary details, bonuses, deductions, and monthly salary history.
+## Features
 
-✅ Department & Position Management – Organize and update company departments and job positions.
+- **Employee Management**: Add, edit, and remove employees with secure authentication.
+- **Payroll Processing**: Automate salary calculations and ensure accurate tax deductions.
+- **Real-time Data Synchronization**: Integrate HR and payroll data seamlessly.
+- **Comprehensive Reporting**: Generate detailed financial and workforce reports.
+- **Alerts & Notifications**: Receive proactive notifications for payroll issues, anniversaries, and compliance checks.
+- **Role-Based Access Control**: Secure multi-level user permissions.
 
-✅ Reports & Analytics – Generate insightful charts for HR, Payroll, and shareholder dividends.
+## Technologies Used
 
-✅ Alerts & Notifications – Work anniversary reminders, leave policy violations, and payroll inconsistencies.
+- **Frontend**:
 
-✅ Security & Role-Based Access – Secure authentication and role-based permissions (Admin, HR, Payroll, Employee).
+- • Frontend Framework: React.js
+- • UI Component Library: Material-UI (MUI)
+- • State Management: Redux Toolkit
+- • Data Visualization: Chart.js
+- • Form Management: React Hook Form
+- • API Communication: Axios
+- • Table & Grid: MUI DataGrid
+- • Authentication & Role – Based Access Control: Firebase Authentication
+- • Testing: Jest + React Testing Library
+- • Deployment: Vercel
 
-🚀 Technology Stack:
+- **Backend**: ASP.NET Core 8, Entity Framework Core
+- **Database**: SQL Server, MySQL
+- **State Management**: ViewState, Session Storage
+- **API Communication**: Axios, Fetch API
+- **Authentication**: Firebase Authentication
+- **Deployment**: Vercel
+- **Version Control**: GitHub
 
-- Front-end framework: ASP.NET Web Forms
-- Responsive design: Bootstrap 5
-- UI customization: Tailwind CSS
-- UI components library: DevExpress
-- State management: ViewState + Session Storage
-- API communication: Axios / Fetch API
-- Development environment: Visual Studio Code
+## Installation
 
-🎯 Project Goals:
-
-- Seamlessly integrate HR and Payroll systems without disrupting existing operations.
-- Automate HR management processes to reduce manual effort.
-- Ensure data accuracy and synchronization for faster decision-making.
-- Provide real-time reports and analytics for better strategic planning.
-
-📅 Development Roadmap:
-
-🔹 Week 1-2 – Requirement analysis & UI design.
-
-🔹 Week 3-5 – Develop API integration between HR & Payroll.
-
-🔹 Week 6-8 – Implement and optimize UI/UX.
-
-🔹 Week 9-10 – Testing, deployment, and final adjustments.
-
-/_Author & Made by: Project Team 6_/
+1. **Clone the repository**
+   git clone https://github.com/your-repo/hr-prmd.git
+   cd hr-prmd
