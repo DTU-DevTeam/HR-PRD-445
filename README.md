@@ -1,4 +1,4 @@
-🏢 Human Resources & Payroll Management Dashboard (HR&PRMD):
+# 🏢 Human Resources & Payroll Management Dashboard (HR&PRMD)
 
 🎯 Overview:
 
@@ -80,10 +80,10 @@ HR&PRMD is a web-based platform designed to integrate Human Resource (HR) and Pa
 
 Contributions are welcome! If you'd like to contribute, please follow these steps:
 
-🔹Fork the repository.
-🔹Create a new branch for your feature or bugfix.
-🔹Commit your changes and push to the branch.
-🔹Submit a pull request with a detailed description of your changes.
+- 1. Fork the repository.
+- 2. Create a new branch for your feature or bugfix.
+- 3. Commit your changes and push to the branch.
+- 4. Submit a pull request with a detailed description of your changes.
 
 ## License
 
@@ -94,8 +94,11 @@ Contributions are welcome! If you'd like to contribute, please follow these step
 📌 Project Team & Authors:
 
 🔹Thien, Nguyen Ngoc (Project Leader) - anh.ty.dn.111@gmail.com
+
 🔹Thanh, Tran Nguyen Duy - doyouwanttobe23@gmail.com
+
 🔹Thuyen, Tran An - trananthuyen1902@gmail.com
+
 🔹Tuan, Le Minh - leminhtuank0@gmail.com
 
 Mentor: Nguyen Dang Quang Huy
