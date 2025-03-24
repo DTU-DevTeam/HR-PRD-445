@@ -39,11 +39,17 @@ HR&PRMD is a web-based platform designed to integrate Human Resource (HR) and Pa
 - Deployment: Vercel
 
 🚀 **Backend**: ASP.NET Core 8, Entity Framework Core
+
 🚀 **Database**: SQL Server, MySQL
+
 🚀 **State Management**: Redux Toolkit
+
 🚀 **API Communication**: Axios
+
 🚀 **Authentication**: Firebase Authentication
+
 🚀 **Deployment**: Vercel
+
 🚀 **Version Control**: GitHub
 
 ## Installation
