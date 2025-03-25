@@ -1,31 +1,25 @@
-// src/App.js
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import EmployeeManagement from "./pages/EmployeeManagement";
-import PayrollManagement from "./pages/PayrollManagement";
-import Reports from "./pages/Reports";
-import Notifications from "./pages/Notifications";
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import AppRoutes from './routes/AppRoutes';
+import theme from './theme';
+import { AuthProvider } from './features/auth/context/AuthContext';
+import Notification from './components/Notification';
 
 function App() {
   return (
-    <Router>
-      <div style={{ display: "flex" }}>
-        <Sidebar />
-        <div style={{ flex: 1 }}>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/employees" element={<EmployeeManagement />} />
-            <Route path="/payroll" element={<PayrollManagement />} />
-            <Route path="/reports" element={<Reports />} />
-            <Route path="/notifications" element={<Notifications />} />
-          </Routes>
-        </div>
-      </div>
-    </Router>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <AuthProvider>
+          <CssBaseline />
+          <BrowserRouter>
+            <AppRoutes />
+          </BrowserRouter>
+          <Notification />
+        </AuthProvider>
+      </ThemeProvider>
+    </Provider>
   );
 }
 
