@@ -61,7 +61,7 @@ const App = () => {
       <aside className="sidebar">
         <div className="sidebar-header">
           <img 
-            src="https://storage.googleapis.com/a1aa/image/PClu-j_SnHmJer4bajY9332VAsuwEywiVboq5IYB3f8.jpg" 
+            src={`${process.env.PUBLIC_URL}/Logopage.png`}
             alt="Company Logo" 
             className="logo"
           />
@@ -69,11 +69,79 @@ const App = () => {
         
         <nav className="sidebar-nav">
           <ul>
-            <li className="active">
-              <i className="fas fa-tachometer-alt"></i>
+
+            {/* Dashboard Nav Item */}
+            <li className="nav-item">
+              <i></i>
+              <img 
+                src={`${process.env.PUBLIC_URL}/dashboardLogo.png`} 
+                alt="Dashboard Icon" 
+                className="nav-icon" />
               <span>Dashboard</span>
             </li>
-            {/* Other nav items... */}
+
+            {/* Employee Management Nav Item */}
+            <li className="nav-item">
+              <i></i>
+              <img 
+                src={`${process.env.PUBLIC_URL}/employeeLogo.png`} 
+                alt="Employee Icon" 
+                className="nav-icon" />
+              <span>Employees</span>
+            </li>
+
+            {/* Payroll & Attendance Nav Item */}
+            <li className="nav-item">
+              <i></i>
+              <img 
+                src={`${process.env.PUBLIC_URL}/payrollLogo.png`} 
+                alt="Payroll & Attendance Icon" 
+                className="nav-icon" />
+              <span>Payroll & Attendance</span>
+            </li>
+
+            {/* Reports & Analytics Nav Item */}
+            <li className="nav-item">
+              <i></i>
+              <img 
+                src={`${process.env.PUBLIC_URL}/reportLogo.png`} 
+                alt="Reports & Analytics Icon" 
+                className="nav-icon" />
+              <span>Reports & Analytics</span>
+            </li>
+
+            {/* Alerts & Notifications Nav Item */}
+            <li className="nav-item">
+              <i></i>
+              <img 
+                src={`${process.env.PUBLIC_URL}/alertLogo.png`} 
+                alt="Alerts & Notifications Icon" 
+                className="nav-icon" />
+              <span>Alerts & Notifications</span>
+            </li>
+
+            {/* Security & Access Nav Item */}
+            <li className="nav-item">
+              <i></i>
+              <img 
+                src={`${process.env.PUBLIC_URL}/securityLogo.png`} 
+                alt="Security & Access Icon" 
+                className="nav-icon" />
+              <span>Security & Access</span>
+            </li>
+
+            {/* Log out Nav Item */}
+            <div className="nav-logout">
+              <li className="nav-item sidebar-footer active">
+              <i></i>
+              <img 
+                src={`${process.env.PUBLIC_URL}/logoutLogo.png`} 
+                alt="Logout Icon" 
+                className="nav-icon" />
+              <span>Log out</span>
+            </li>
+            </div>
+            
           </ul>
         </nav>
       </aside>
@@ -101,7 +169,7 @@ const App = () => {
                 alt="User" 
               />
               <div>
-                <span className="username">John Doe</span>
+                <span className="username">Tuan, Le Minh</span>
                 <span className="user-role">Admin</span>
               </div>
             </div>
