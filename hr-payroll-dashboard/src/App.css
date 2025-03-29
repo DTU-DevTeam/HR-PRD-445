@@ -43,11 +43,45 @@ body {
   }
 }
 
-.sidebar-footer {
-  padding: 0 1.5rem 0rem;
-  border-top: 3px solid #f3f4f6;
-  /* border-bottom: 3px solid #f3f4f6; */
+/* Sidebar Wrapper */
+.sidebar-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  z-index: 1000;
+  transition: transform 0.3s ease;
 }
+
+/* Sidebar Wrapper Open State */
+.sidebar-wrapper.open {
+  transform: translateX(0);
+}
+
+/* Sidebar Wrapper Closed State */
+.sidebar-wrapper.closed {
+  transform: translateX(-241px);
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+  position: absolute;
+  top: 35px;
+  left: 230px;
+  background: transparent;
+  border: transparent;
+  border-color: red;
+  cursor: pointer;
+  transition: left 0.3s ease-in-out;
+}
+
+.toggle-icon {
+  width: 50px;
+  height: 50px;
+}
+
+/* Logo-header Sidebar*/
 .logo {
   position: relative;
   width: 220px;
@@ -57,13 +91,17 @@ body {
   object-fit: contain;
 }
 
+/* Sidebar Navigation */
 .sidebar-nav ul {
   padding: 1rem 0;
 }
 
+/* Sidebar Navigation Items */
 .sidebar-nav li {
+  position: relative;
   list-style: none;
   margin: 1rem 0;
+  margin-right: 3px;
   padding: 0.75rem 1.5rem;
   display: flex;
   align-items: center;
@@ -74,6 +112,7 @@ body {
   transition: all var(--transition-speed);
 }
 
+/* Sidebar Navigation Item Hover Effect */
 .sidebar-nav li:hover {
   background: linear-gradient(
     125deg,
@@ -83,36 +122,138 @@ body {
     #081a42 100%
   );
   color: #ffffff;
+  box-shadow: 0 0 15px rgba(89, 88, 88, 0.8);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
 }
 
+/* Sidebar Navigation Item Arrow */
+.sidebar-nav li::after {
+  position: absolute;
+  left: -45px;
+  bottom: 25px;
+  width: 100%;
+  height: 10px;
+  transform: scaleX(0);
+  transition: transform var(--transition-speed);
+}
+
+/* Sidebar Navigation Item Arrow on Hover */
+.sidebar-nav li:hover::after {
+  transform: scaleX(0.5);
+  transition: transform var(--transition-speed);
+}
+
+/* Sidebar Navigation Item Active State */
 .sidebar-nav li.active {
-  color: #ff0000;
+  background: linear-gradient(
+    125deg,
+    #ffffff 0%,
+    #717b8e,
+    #2e3b55,
+    #081a42 100%
+  );
+  color: #3fc9ff;
+  animation: glowing-border 2s infinite alternate;
+  box-shadow: 0 0 15px #3fc9ff;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
 }
 
+/* Sidebar Navigation Item Arrow on Hover State */
+.sidebar-nav li:hover::before {
+  opacity: 100%;
+  content: "▶▶";
+  color: #ffffff;
+  font-size: 1.1rem;
+  rotate: 90deg;
+  position: absolute;
+  left: 200px;
+  bottom: 50px;
+  animation: arrowMove 0.5s infinite alternate ease-in-out;
+}
+
+/* Sidebar Navigation Item Arrow on Active State */
+.sidebar-nav li.active::before {
+  opacity: 100%;
+  content: "▶▶";
+  color: #3fc9ff;
+  font-size: 1.1rem;
+  rotate: 90deg;
+  position: absolute;
+  left: 200px;
+  bottom: 50px;
+  animation: arrowMove 0.5s infinite alternate ease-in-out;
+}
+
+/* Sidebar Navigation Item Icon */
 .sidebar-nav li i {
   margin-right: 0.75rem;
   width: 20px;
   text-align: center;
 }
 
+/* Sidebar Navigation Item Icon on Hover */
 .nav-icon {
   width: 24px;
   height: 24px;
-  margin-left: -30px;
-  margin-right: 15px;
+  margin-left: -40px;
+  margin-right: 13px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-.nav-logout {
-  margin-top: 75px;
-  margin-bottom: 75px;
-  margin-left: 35px;
-  margin-right: 35px;
-}
-
+/* Sidebar Navigation Item Text */
 .nav-item {
   display: flex;
   align-items: center;
   border-radius: 100px;
+}
+
+/* Logout Button */
+.logout {
+  position: relative;
+  margin: 1rem 0;
+  background: none !important;
+  color: #ffffff !important;
+  font-weight: bold;
+  cursor: pointer;
+  top: 20px;
+  border-top: 3px solid #f3f4f6;
+  border-radius: 100px;
+  margin-left: 65px;
+  margin-right: 65px;
+}
+
+/* Logout Button Hover Effect */
+.logout:hover {
+  background: linear-gradient(
+    125deg,
+    #fe6f6f 0%,
+    #8f2121,
+    #580707,
+    #460000 100%
+  ) !important;
+  border-radius: 100px;
+  border-top: 3px solid #ff0000;
+  color: #ff0000 !important;
+  box-shadow: 0 0 15px #ff0000;
+  animation: glowing-border-logout 2s infinite alternate;
+}
+
+/* Logout Button Icon */
+.nav-icon-logout {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+/* Logout Button Text */
+.nav-logout {
+  position: relative;
+  bottom: -5px;
+  left: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+  width: max-content;
 }
 
 /* Main Content Styles */
@@ -345,6 +486,39 @@ body {
   .charts-section,
   .notifications-section {
     grid-template-columns: 1fr;
+  }
+}
+
+@keyframes arrowMove {
+  0% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes glowing-border {
+  0% {
+    box-shadow: 0 0 5px #3fc9ff;
+  }
+  50% {
+    box-shadow: 0 0 20px #3fc9ff;
+  }
+  100% {
+    box-shadow: 0 0 5px #3fc9ff;
+  }
+}
+
+@keyframes glowing-border-logout {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
   }
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import './App.css';
 
 const DashboardCard = ({ title, value, change, color, icon }) => {
@@ -55,96 +56,88 @@ const NotificationItem = ({ icon, color, title, description, time }) => {
 };
 
 const App = () => {
+
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [activeIndex, setActiveIndex] = useState(null);
+
+    const toggleSidebar = () => {
+      setIsSidebarOpen(!isSidebarOpen);
+    };
+
+    const handleItemClick = (index) => {
+      setActiveIndex(index);
+    };
+  
   return (
     <div className="app-container bg-gray-50">
-      {/* Sidebar */}
-      <aside className="sidebar">
-        <div className="sidebar-header">
-          <img 
-            src={`${process.env.PUBLIC_URL}/Logopage.png`}
-            alt="Company Logo" 
-            className="logo"
-          />
-        </div>
+      {/* Sidebar Wrapper */}
+      <div className={`sidebar-wrapper ${isSidebarOpen ? 'open' : 'closed'}`}>
         
-        <nav className="sidebar-nav">
-          <ul>
-
-            {/* Dashboard Nav Item */}
-            <li className="nav-item">
+        {/* Sidebar */}
+        <aside className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
+          <div className="sidebar-header">
+            <img 
+              src={`${process.env.PUBLIC_URL}/images/Logopage.png`}
+              alt="Company Logo" 
+              className="logo"
+            />
+          </div>
+          
+          {/* Sidebar Navigation */}
+          <nav className="sidebar-nav">
+            <ul>
+              {[
+                { name: "Dashboard", icon: "dashboardLogo.png" },
+                { name: "Employees", icon: "employeeLogo.png" },
+                { name: "Payroll & Attendance", icon: "payrollLogo.png" },
+                { name: "Reports & Analytics", icon: "reportLogo.png" },
+                { name: "Alerts & Notifications", icon: "alertLogo.png" },
+                { name: "Security & Access", icon: "securityLogo.png" },
+              ].map((item, index) => (
+                <li
+                  className={`nav-item ${index === activeIndex ? "active" : ""}`}
+                  onClick={() => handleItemClick(index)}
+                  >
+                  <i></i>
+                  <img
+                    src={`${process.env.PUBLIC_URL}/icons/${item.icon}`}
+                    alt={`${item.name} Icon`}
+                    className="nav-icon"
+                  />
+                  <span>{item.name}</span>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <ul className="logout">
+            <li 
+              className="nav-item nav-logout "
+              onClick={() => alert("Successfully logged out!")}
+              >
               <i></i>
-              <img 
-                src={`${process.env.PUBLIC_URL}/dashboardLogo.png`} 
-                alt="Dashboard Icon" 
-                className="nav-icon" />
-              <span>Dashboard</span>
-            </li>
-
-            {/* Employee Management Nav Item */}
-            <li className="nav-item">
-              <i></i>
-              <img 
-                src={`${process.env.PUBLIC_URL}/employeeLogo.png`} 
-                alt="Employee Icon" 
-                className="nav-icon" />
-              <span>Employees</span>
-            </li>
-
-            {/* Payroll & Attendance Nav Item */}
-            <li className="nav-item">
-              <i></i>
-              <img 
-                src={`${process.env.PUBLIC_URL}/payrollLogo.png`} 
-                alt="Payroll & Attendance Icon" 
-                className="nav-icon" />
-              <span>Payroll & Attendance</span>
-            </li>
-
-            {/* Reports & Analytics Nav Item */}
-            <li className="nav-item">
-              <i></i>
-              <img 
-                src={`${process.env.PUBLIC_URL}/reportLogo.png`} 
-                alt="Reports & Analytics Icon" 
-                className="nav-icon" />
-              <span>Reports & Analytics</span>
-            </li>
-
-            {/* Alerts & Notifications Nav Item */}
-            <li className="nav-item">
-              <i></i>
-              <img 
-                src={`${process.env.PUBLIC_URL}/alertLogo.png`} 
-                alt="Alerts & Notifications Icon" 
-                className="nav-icon" />
-              <span>Alerts & Notifications</span>
-            </li>
-
-            {/* Security & Access Nav Item */}
-            <li className="nav-item">
-              <i></i>
-              <img 
-                src={`${process.env.PUBLIC_URL}/securityLogo.png`} 
-                alt="Security & Access Icon" 
-                className="nav-icon" />
-              <span>Security & Access</span>
-            </li>
-
-            {/* Log out Nav Item */}
-            <div className="nav-logout">
-              <li className="nav-item sidebar-footer active">
-              <i></i>
-              <img 
-                src={`${process.env.PUBLIC_URL}/logoutLogo.png`} 
-                alt="Logout Icon" 
-                className="nav-icon" />
-              <span>Log out</span>
-            </li>
-            </div>
-            
+              <img
+                src={`${process.env.PUBLIC_URL}/icons/logoutLogo.png`}
+                alt="Logout Icon"
+                className="nav-icon-logout"
+              />
+                <span>Log out</span>
+              </li>
           </ul>
-        </nav>
-      </aside>
+        </aside>
+
+        {/* Sidebar Toggle Button */}
+        <button 
+          className="sidebar-toggle"
+          onClick={toggleSidebar}
+          aria-label={isSidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
+        >
+          <img
+            src={`${process.env.PUBLIC_URL}/icons/${isSidebarOpen ? "sidebarRight.png" : "sidebarLeft.png"}`}
+            alt="Toggle Sidebar"
+            className="toggle-icon"
+          />
+        </button>
+      </div>
 
       {/* Main Content */}
       <main className="main-content">
