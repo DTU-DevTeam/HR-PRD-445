@@ -1,0 +1,34 @@
+﻿@model List<Employee_SqlServer>;
+
+
+<h1>Quan lý nhân viên</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Application ID</th>
+            <th>Department ID</th>
+            <th>Hire Date</th>
+            <th>Status</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EmployeeID</td>
+                <td>@item.ApplicantID</td>
+                <td>@item.DepartmentID</td>
+                <td>@item.HireDate</td>
+                <td>@item.Status</td>
+                <td>
+                    <a asp-controller="HR" asp-action="EditEmployee" asp-route-id="@item.EmployeeID">Edit</a>
+                    <a asp-controller="HR" asp-action="DeleteEmployee" asp-route-id="@item.EmployeeID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

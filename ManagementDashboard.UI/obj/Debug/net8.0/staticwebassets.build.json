@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "KbUyCtjPHwQCudtPO9igWJrRZn9aYM/V+KyoLy4nL2k=",
+  "Source": "ManagementDashboard.UI",
+  "BasePath": "_content/ManagementDashboard.UI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ManagementDashboard.UI\\wwwroot",
+      "Source": "ManagementDashboard.UI",
+      "ContentRoot": "C:\\ManagementDashboard_Project\\ManagementDashboard.Solution\\ManagementDashboard.UI\\wwwroot\\",
+      "BasePath": "_content/ManagementDashboard.UI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

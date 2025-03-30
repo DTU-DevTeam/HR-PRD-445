@@ -1,0 +1,15 @@
+C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\bin\Debug\net8.0\ManagementDashboard.Infrastructure.deps.json
+C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\bin\Debug\net8.0\ManagementDashboard.Infrastructure.dll
+C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\bin\Debug\net8.0\ManagementDashboard.Infrastructure.pdb
+C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\bin\Debug\net8.0\ManagementDashboard.Core.dll
+C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\bin\Debug\net8.0\ManagementDashboard.Core.pdb
+C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ManagementDashboard.Infrastructure.csproj.AssemblyReference.cache
+C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ManagementDashboard.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ManagementDashboard.Infrastructure.AssemblyInfoInputs.cache
+C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ManagementDashboard.Infrastructure.AssemblyInfo.cs
+C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ManagementDashboard.Infrastructure.csproj.CoreCompileInputs.cache
+C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\Manageme.B77A129A.Up2Date
+C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ManagementDashboard.Infrastructure.dll
+C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\refint\ManagementDashboard.Infrastructure.dll
+C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ManagementDashboard.Infrastructure.pdb
+C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ref\ManagementDashboard.Infrastructure.dll
