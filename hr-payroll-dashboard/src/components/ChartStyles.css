@@ -1,0 +1,73 @@
+.chart-container {
+  margin: 40px 0;
+  padding: 20px;
+  background-color: #f5f7fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.progress-circle {
+  text-align: center;
+  width: 150px;
+  position: relative;
+}
+
+.progress-circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.progress-circle-text p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.progress-circle-text p:first-child {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.progress-bars {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.progress-bar p {
+  margin: 0 10px;
+  width: 60px;
+}
+
+.progress-bar-container {
+  flex: 1;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.3s ease-in-out;
+}

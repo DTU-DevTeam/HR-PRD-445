@@ -56,23 +56,22 @@ const NotificationItem = ({ icon, color, title, description, time }) => {
 };
 
 const App = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isHidden, setIsHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const lastScrollTop = useRef(0);
 
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [isHidden, setIsHidden] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
-    const lastScrollTop = useRef(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      let scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-    useEffect(() => {
-      const handleScroll = () => {
-        let scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-        // Check if the user has scrolled down
-        if (scrollTop > lastScrollTop.current && scrollTop > 50) {
-          setIsHidden(true); // Hide on scroll down
-        } else {
-          setIsHidden(false); // Show on scroll up
-        }
+      // Check if the user has scrolled down
+      if (scrollTop > lastScrollTop.current && scrollTop > 50) {
+        setIsHidden(true); // Hide on scroll down
+      } else {
+         setIsHidden(false); // Show on scroll up
+      }
 
         // Check if the user has scrolled more than 1px
         // to change the header background color
@@ -110,7 +109,7 @@ const App = () => {
         <aside className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
           <div className="sidebar-header">
             <img 
-              src={`${process.env.PUBLIC_URL}/images/Logopage.png`}
+              src={`${process.env.PUBLIC_URL}/Logopage.png`}
               alt="Company Logo" 
               className="logo"
             />
@@ -177,7 +176,7 @@ const App = () => {
         {/* Header */}
         <header className={`header-nav ${scrolled ? 'scrolled' : ''} ${isHidden ? 'hidden' : ''}`}>
           <div className="search-bar">
-            <i className="fas fa-search"></i>
+            <i className="fas fa-search" style={{cursor: 'pointer'}}></i>
             <input type="text" placeholder="Search..." />
           </div>
           
@@ -204,17 +203,6 @@ const App = () => {
 
         {/* Dashboard Content */}
         <div className="dashboard-content">
-        <div class="parent">
-            <div class="newEmployee">New Employee</div>
-            <div class="leaveEmployee">Number of Leave</div>
-            <div class="totalEmployee">Total Employee</div>
-            <div class="averageSalary">Average Salary</div>
-            <div class="salaryStatistics">Salary Statistics</div>
-            <div class="totalSalaryByUnit">Total Salary by Unit</div>
-            <div class="incomeAnalysis">Income Analysis</div>
-            <div class="employeeStructure">Employee Structure</div>
-            <div class="employeePerformance">Employee Performance</div>
-        </div>
     
         {/* Stats Grid */}
           <section className="stats-grid">
