@@ -149,7 +149,7 @@ body {
     125deg,
     #ffffff 0%,
     #717b8e,
-    #2e3b55,
+    rgb(46, 59, 85),
     #081a42 100%
   );
   color: #3fc9ff;
@@ -259,20 +259,46 @@ body {
 /* Main Content Styles */
 .main-content {
   flex: 1;
-  margin-left: var(--sidebar-width);
+  margin-left: 10px;
   padding: 1.5rem;
   min-height: 100vh;
 }
 
-.main-header {
+/* Main Header */
+.header-nav {
+  position: static;
+  top: 0;
+  left: var(--sidebar-width);
+  right: 0;
+  z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
-  background: white;
+  background: #ffffff;
   padding: 1rem 1.5rem;
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+  height: var(--header-height);
+}
+
+/* Header when scroll*/
+.header-nav.scrolled {
+  position: fixed;
+  top: 15px;
+  left: 34px;
+  right: 25px;
+  background: rgba(46, 59, 85, 0.98) !important;
+  box-shadow: 0 4px 12px rgba(46, 59, 85, 0.102) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 12px !important;
+  border-bottom: 1px solid rgba(46, 59, 85, 0.05);
+}
+
+/* Show/Hide Header Effect*/
+.header-nav.hidden {
+  transform: translateY(-125%);
+  transition: transform 0.3s ease-in-out;
 }
 
 .search-bar {
@@ -298,8 +324,9 @@ body {
 
 .search-bar input:focus {
   outline: none;
-  border-color: #a5b4fc;
-  box-shadow: 0 0 0 3px rgba(199, 210, 254, 0.5);
+  border-color: #32418b;
+  box-shadow: 0 0 0 3px rgba(25, 63, 214, 0.5);
+  animation: glowing-border 2s infinite alternate;
 }
 
 .user-actions {
@@ -321,8 +348,8 @@ body {
 }
 
 .icon-btn:hover {
-  background: #f3f4f6;
-  color: #111827;
+  background: #ffffff;
+  color: #04205b;
 }
 
 .badge {
@@ -359,6 +386,8 @@ body {
   font-size: 0.875rem;
   font-weight: 500;
   color: #111827;
+  cursor: default;
+  transition: color 0.3s ease;
 }
 
 .user-role {
@@ -366,13 +395,92 @@ body {
   flex-direction: column;
   font-size: 0.75rem;
   color: #6b7280;
+  cursor: default;
+  transition: color 0.3s ease;
 }
 
+/* Username in Header when scrolled */
+.header-nav.scrolled .username.scrolled {
+  color: white !important;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+/* User Role in Header when scrolled */
+.header-nav.scrolled .user-role.scrolled {
+  color: rgb(255, 0, 0) !important;
+  text-shadow: 0 0 3px rgba(157, 12, 12, 0.5);
+}
 /* Dashboard Content */
 .dashboard-content {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  gap: 1.5rem;
+  color: rgb(0, 0, 0, 0.5);
+}
+
+.newEmployee {
+  grid-column: span 3 / span 3;
+  grid-row: span 2 / span 2;
+}
+
+.leaveEmployee {
+  grid-column: span 3 / span 3;
+  grid-row: span 2 / span 2;
+  grid-column-start: 4;
+}
+
+.totalEmployee {
+  grid-column: span 3 / span 3;
+  grid-row: span 2 / span 2;
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+
+.averageSalary {
+  grid-column: span 3 / span 3;
+  grid-row: span 2 / span 2;
+  grid-column-start: 4;
+  grid-row-start: 3;
+}
+
+.salaryStatistics {
+  grid-column: span 6 / span 6;
+  grid-row: span 4 / span 4;
+  grid-column-start: 7;
+  grid-row-start: 1;
+}
+
+.totalSalaryByUnit {
+  grid-column: span 8 / span 8;
+  grid-row: span 4 / span 4;
+  grid-row-start: 5;
+}
+
+.incomeAnalysis {
+  grid-column: span 4 / span 4;
+  grid-row: span 4 / span 4;
+  grid-column-start: 9;
+  grid-row-start: 5;
+}
+
+.employeeStructure {
+  grid-column: span 4 / span 4;
+  grid-row: span 4 / span 4;
+  grid-row-start: 9;
+}
+
+.employeePerformance {
+  grid-column: span 8 / span 8;
+  grid-row: span 4 / span 4;
+  grid-column-start: 5;
+  grid-row-start: 9;
 }
 
 .stats-grid {
@@ -433,7 +541,7 @@ body {
 
 .notifications-header h4 {
   font-size: 0.875rem;
-  color: #6b7280;
+  color: #806b6b;
   font-weight: 500;
 }
 
@@ -541,5 +649,14 @@ body {
 @media (max-width: 480px) {
   .stats-grid {
     grid-template-columns: 1fr;
+  }
+
+  .header-nav {
+    padding: 0.5rem;
+  }
+
+  .user-actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 }
