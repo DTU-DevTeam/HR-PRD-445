@@ -36,12 +36,12 @@ body {
   flex-direction: column;
   z-index: 20;
   transition: transform 0.3s ease, width 0.3s ease;
+}
 
-  .sidebar-header {
-    padding: 0 1.5rem 0rem;
-    border-bottom: 3px solid #f3f4f6;
-    border-radius: 50px;
-  }
+.sidebar-header {
+  padding: 0 1.5rem 0rem;
+  border-bottom: 3px solid #f3f4f6;
+  border-radius: 50px;
 }
 
 /* Sidebar Wrapper */
@@ -55,12 +55,10 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* Sidebar Wrapper Open State */
 .sidebar-wrapper.open {
   transform: translateX(0);
 }
 
-/* Sidebar Wrapper Closed State */
 .sidebar-wrapper.closed {
   transform: translateX(-241px);
 }
@@ -72,7 +70,6 @@ body {
   left: 230px;
   background: transparent;
   border: transparent;
-  border-color: red;
   cursor: pointer;
   transition: left 0.3s ease-in-out;
 }
@@ -82,7 +79,7 @@ body {
   height: 50px;
 }
 
-/* Logo-header Sidebar*/
+/* Logo-header Sidebar */
 .logo {
   position: relative;
   width: 220px;
@@ -95,26 +92,31 @@ body {
 /* Sidebar Navigation */
 .sidebar-nav ul {
   padding: 1rem 0;
+  list-style: none;
 }
 
-/* Sidebar Navigation Items */
-.sidebar-nav li {
-  position: relative;
-  list-style: none;
-  margin: 1rem 0;
-  margin-right: 3px;
-  padding: 0.75rem 1.5rem;
+.nav-item {
   display: flex;
   align-items: center;
-  color: #6b7280;
+  margin: 0.5rem 0.75rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 100px;
+  color: #e5e7eb;
   font-size: 0.925rem;
   font-weight: 500;
-  cursor: pointer;
-  transition: all var(--transition-speed);
+  text-decoration: none;
 }
 
-/* Sidebar Navigation Item Hover Effect */
-.sidebar-nav li:hover {
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 1rem;
+  filter: brightness(0.9);
+  transition: filter var(--transition-speed);
+}
+
+/* Hover */
+.nav-item:hover {
   background: linear-gradient(
     125deg,
     #ffffff 0%,
@@ -124,28 +126,24 @@ body {
   );
   color: #ffffff;
   box-shadow: 0 0 15px rgba(89, 88, 88, 0.8);
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
 }
 
-/* Sidebar Navigation Item Arrow */
-.sidebar-nav li::after {
+.nav-item:hover .nav-icon {
+  filter: brightness(1.2);
+}
+
+.nav-item:hover::after {
   position: absolute;
   left: -45px;
   bottom: 25px;
   width: 100%;
   height: 10px;
-  transform: scaleX(0);
-  transition: transform var(--transition-speed);
-}
-
-/* Sidebar Navigation Item Arrow on Hover */
-.sidebar-nav li:hover::after {
   transform: scaleX(0.5);
   transition: transform var(--transition-speed);
 }
 
-/* Sidebar Navigation Item Active State */
-.sidebar-nav li.active {
+/* Active state */
+.nav-item.active-link {
   background: linear-gradient(
     125deg,
     #ffffff 0%,
@@ -154,59 +152,13 @@ body {
     #081a42 100%
   );
   color: #3fc9ff;
+  font-weight: bold;
   animation: glowing-border 2s infinite alternate;
   box-shadow: 0 0 15px #3fc9ff;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
 }
 
-/* Sidebar Navigation Item Arrow on Hover State */
-.sidebar-nav li:hover::before {
-  opacity: 100%;
-  content: "▶▶";
-  color: #ffffff;
-  font-size: 1.1rem;
-  rotate: 90deg;
-  position: absolute;
-  left: 200px;
-  bottom: 50px;
-  animation: arrowMove 0.5s infinite alternate ease-in-out;
-}
-
-/* Sidebar Navigation Item Arrow on Active State */
-.sidebar-nav li.active::before {
-  opacity: 100%;
-  content: "▶▶";
-  color: #3fc9ff;
-  font-size: 1.1rem;
-  rotate: 90deg;
-  position: absolute;
-  left: 200px;
-  bottom: 50px;
-  animation: arrowMove 0.5s infinite alternate ease-in-out;
-}
-
-/* Sidebar Navigation Item Icon */
-.sidebar-nav li i {
-  margin-right: 0.75rem;
-  width: 20px;
-  text-align: center;
-}
-
-/* Sidebar Navigation Item Icon on Hover */
-.nav-icon {
-  width: 24px;
-  height: 24px;
-  margin-left: -40px;
-  margin-right: 13px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-/* Sidebar Navigation Item Text */
-.nav-item {
-  display: flex;
-  align-items: center;
-  border-radius: 100px;
+.nav-item.active-link .nav-icon {
+  filter: brightness(1.2);
 }
 
 /* Logout Button */
@@ -224,7 +176,27 @@ body {
   margin-right: 65px;
 }
 
-/* Logout Button Hover Effect */
+.nav-logout {
+  position: relative;
+  bottom: -5px;
+  left: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+  width: max-content;
+}
+
+.nav-item-logout {
+  display: flex;
+  align-items: center;
+  border-radius: 100px;
+}
+
+.nav-icon-logout {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
 .logout:hover {
   background: linear-gradient(
     125deg,
@@ -238,23 +210,6 @@ body {
   color: #ff0000 !important;
   box-shadow: 0 0 15px #ff0000;
   animation: glowing-border-logout 2s infinite alternate;
-}
-
-/* Logout Button Icon */
-.nav-icon-logout {
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
-}
-
-/* Logout Button Text */
-.nav-logout {
-  position: relative;
-  bottom: -5px;
-  left: 5px;
-  text-align: center;
-  margin-bottom: 10px;
-  width: max-content;
 }
 
 /* Main Content Styles */
@@ -283,20 +238,20 @@ body {
   height: var(--header-height);
 }
 
-/* Header when scroll*/
+/* Header when scroll */
 .header-nav.scrolled {
   position: fixed;
   top: 15px;
   left: 34px;
   right: 25px;
-  background: rgba(46, 59, 85, 0.98) !important;
-  box-shadow: 0 4px 12px rgba(46, 59, 85, 0.102) !important;
+  background: rgba(46, 59, 85, 0.98);
+  box-shadow: 0 4px 12px rgba(46, 59, 85, 0.102);
   backdrop-filter: blur(10px);
-  border-radius: 12px !important;
+  border-radius: 12px;
   border-bottom: 1px solid rgba(46, 59, 85, 0.05);
 }
 
-/* Show/Hide Header Effect*/
+/* Show/Hide Header Effect */
 .header-nav.hidden {
   transform: translateY(-125%);
   transition: transform 0.3s ease-in-out;
@@ -402,13 +357,13 @@ body {
 
 /* Username in Header when scrolled */
 .header-nav.scrolled .username.scrolled {
-  color: white !important;
+  color: white;
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
 /* User Role in Header when scrolled */
 .header-nav.scrolled .user-role.scrolled {
-  color: rgb(255, 0, 0) !important;
+  color: rgb(255, 0, 0);
   text-shadow: 0 0 3px rgba(157, 12, 12, 0.5);
 }
 
@@ -419,6 +374,7 @@ body {
   gap: 1.5rem;
 }
 
+/* Grid Layout */
 .parent {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -471,20 +427,6 @@ body {
   grid-row-start: 5;
 }
 
-.div8 {
-  grid-column: span 4 / span 4;
-  grid-row: span 4 / span 4;
-  grid-row-start: 9;
-}
-
-.div9 {
-  grid-column: span 8 / span 8;
-  grid-row: span 4 / span 4;
-  grid-column-start: 5;
-  grid-row-start: 9;
-}
-
-/**/
 .progress-circles-container {
   display: flex;
   justify-content: center;
@@ -507,22 +449,6 @@ body {
 
 .animate {
   animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .sidebar {
-    transform: translateX(-100%);
-    transition: transform var(--transition-speed);
-  }
-
-  .sidebar.active {
-    transform: translateX(0);
-  }
-
-  .main-content {
-    margin-left: 0;
-  }
 }
 
 @keyframes arrowMove {
@@ -555,6 +481,22 @@ body {
   }
   100% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform var(--transition-speed);
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
   }
 }
 

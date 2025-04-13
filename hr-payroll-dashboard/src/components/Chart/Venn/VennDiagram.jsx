@@ -1,19 +1,30 @@
 import React from 'react';
-import { Doughnut } from 'react-chartjs-2';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import './VennDiagram.css';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+const VennDiagram = () => {
+  const data = [
+    { label: 'Design', value: 100, color: '#5a7dff' },
+    { label: 'Development', value: 25, color: '#4ac7c8' },
+    { label: 'Management', value: 20, color: '#4caf50' },
+  ];
 
-const VennDiagram = ({ data }) => {
-  return (
+  return ( 
     <div className="chart-container">
       <h2>Income Analysis</h2>
-      <Doughnut
-        data={data}
-        options={{
-          plugins: { legend: { position: 'bottom' } },
-        }}
-      />
+      <div className="venn-diagram">
+        {data.map((item, index) => (
+          <div
+            key={index}
+            className={`circle circle-${index}`}
+            style={{ backgroundColor: item.color }}
+          >
+            <div className="circle-content">
+              <span className="value">{item.value}</span>
+              <span className="label">{item.label}</span>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
