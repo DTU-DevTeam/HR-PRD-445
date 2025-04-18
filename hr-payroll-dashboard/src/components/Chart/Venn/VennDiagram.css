@@ -1,0 +1,115 @@
+.chart-container {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.chart-container h2 {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.venn-diagram {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+}
+
+.circle-content {
+  text-align: center;
+  color: #fff;
+}
+
+.circle-content .value {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.circle-content .label {
+  font-size: 1rem;
+}
+
+.circle-0 {
+  /* Design */
+  width: 200px;
+  height: 200px;
+  top: 50px;
+  left: 0;
+}
+
+.circle-1 {
+  /* Development */
+  width: 150px;
+  height: 150px;
+  top: 0;
+  right: 0;
+}
+
+.circle-2 {
+  /* SEO */
+  width: 120px;
+  height: 120px;
+  bottom: 0;
+  right: 50px;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .chart-container h2 {
+    font-size: 1.2rem;
+  }
+
+  .venn-diagram {
+    width: 250px;
+    height: 250px;
+  }
+
+  .circle-0 {
+    width: 180px;
+    height: 180px;
+    top: 40px;
+    left: 0;
+  }
+
+  .circle-1 {
+    width: 130px;
+    height: 130px;
+    top: 0;
+    right: 0;
+  }
+
+  .circle-2 {
+    width: 100px;
+    height: 100px;
+    bottom: 0;
+    right: 40px;
+  }
+
+  .circle-content .value {
+    font-size: 1.5rem;
+  }
+
+  .circle-content .label {
+    font-size: 0.9rem;
+  }
+}
