@@ -4,8 +4,13 @@ const PayrollAttendance = () => {
   return (
     <div className="dashboard-content">
       <h1 className="dashboard-title">Payroll & Attendance</h1>
-      <p>Track payroll and attendance records here.</p>
-      {/* Add payroll tables, attendance charts, etc. */}
+      <iframe
+        src="https://localhost:7151/payroll/salaries" 
+        title="PayRoll Management"
+        width="100%"
+        height= "500px"
+        style={{ border: 'none' }}
+      ></iframe>
     </div>
   );
 };

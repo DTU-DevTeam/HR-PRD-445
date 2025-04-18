@@ -6,7 +6,7 @@ import './CircularProgressBar.css';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const CircularProgressBar = ({ label, value, percentage, changeType, colors }) => {
-  const dataValues = [percentage, 100 - percentage];
+  const dataValues = [percentage, 100 - percentage];  //tinh toan phan tramtram
   const backgroundColors = colors || ['#4CAF50', '#E0E0E0'];
 
   const data = {
@@ -38,6 +38,7 @@ const CircularProgressBar = ({ label, value, percentage, changeType, colors }) =
           <p className="progress-circle-value">{value}</p>
           <p className="progress-circle-percentage">
             {percentage}% {changeType}
+              // hien thi phan tram
           </p>
           <p className="progress-circle-description">Last month</p>
         </div>
