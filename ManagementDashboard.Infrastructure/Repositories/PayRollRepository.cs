@@ -1,4 +1,5 @@
 ﻿using ManagementDashboard.Core.Domain.Entities;
+using ManagementDashboard.Core.RepositoryContract;
 using ManagementDashboard.Infrastructure.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ManagementDashboard.Infrastructure.Repositories
 {
-    public class PayRollRepository
+    public class PayRollRepository : IPayRollRepository
     {
         public readonly ApplicationDbContext_MySql _dbcontext;
 
@@ -18,12 +19,12 @@ namespace ManagementDashboard.Infrastructure.Repositories
             _dbcontext = dbcontext;
         }
 
-        public async Task<List<PayRoll_MySQL>> GetAll()
+        public async Task<List<Salary_MySQL>> GetAllSalaries()
         {
             return await _dbcontext.PayRolls.ToListAsync();
         }
 
-        public async Task<PayRoll_MySQL> AddPayRoll(PayRoll_MySQL payRoll_MySQL)
+        public async Task<Salary_MySQL> AddPayRoll(Salary_MySQL payRoll_MySQL)
         {
             await _dbcontext.PayRolls.AddAsync(payRoll_MySQL);
 

@@ -15,11 +15,13 @@ namespace ManagementDashboard.Core.Domain.Entities
     {
         public int DividendID { get; set; }
 
-        public int ShareholderID { get; set; }
+        public int EmployeeID { get; set; }
 
         public decimal DividendAmount { get; set; }
 
-        public DateOnly PaymentDate { get; set; }
+        public DateOnly DividendDate { get; set; }
+
+        public DateTime CreateAt { get; set; }
     }
 
     

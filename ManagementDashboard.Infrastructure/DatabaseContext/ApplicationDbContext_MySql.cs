@@ -18,7 +18,7 @@ namespace ManagementDashboard.Infrastructure.DatabaseContext
         }
 
         public DbSet<Employee_MySql> Employees { get; set; }
-        public DbSet<PayRoll_MySQL> PayRolls { get; set; }
+        public DbSet<Salary_MySQL> PayRolls { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,7 +26,7 @@ namespace ManagementDashboard.Infrastructure.DatabaseContext
 
             modelBuilder.Entity<Employee_MySql>().ToTable("employees");
 
-            modelBuilder.Entity<PayRoll_MySQL>().ToTable("payroll");
+            modelBuilder.Entity<Salary_MySQL>().ToTable("salaries");
         }
 
       

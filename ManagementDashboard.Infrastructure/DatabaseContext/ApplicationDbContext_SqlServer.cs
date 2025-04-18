@@ -17,7 +17,7 @@ namespace ManagementDashboard.Infrastructure.DatabaseContext
 
         public DbSet<Employee_SqlServer> Employees { get; set; }
         public DbSet<Department_SqlServer> Departments { get; set; }
-        public DbSet<Applicant_SqlServer> Applicants { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,7 +27,7 @@ namespace ManagementDashboard.Infrastructure.DatabaseContext
 
             modelBuilder.Entity<Department_SqlServer>().ToTable("Departments");
 
-            modelBuilder.Entity<Applicant_SqlServer>().ToTable("Applicants");
+          
         }
     }
 }

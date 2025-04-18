@@ -1,4 +1,5 @@
 ﻿using ManagementDashboard.Core.Domain.Entities;
+using ManagementDashboard.Core.RepositoryContract;
 using ManagementDashboard.Infrastructure.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ManagementDashboard.Infrastructure.Repositories
 {
-    public class EmployeesRepository
+    public class EmployeesRepository : IEmployeesRepository
     {
         public ApplicationDbContext_SqlServer _dbcontext_SqlServer;
         public ApplicationDbContext_MySql _dbcontext_MySql;
@@ -24,9 +25,27 @@ namespace ManagementDashboard.Infrastructure.Repositories
         /*
          * Get All Employees from SQL Server
          */
-        public async Task<List<Employee_SqlServer>> GetAll_SqlServer()
+        private async Task<List<Employee_SqlServer>> GetAll_SqlServer()
         {
             return await _dbcontext_SqlServer.Employees.ToListAsync();
+        }
+
+        private async Task<List<Employee_MySql>> GetAll_MySql()
+        {
+            return await _dbcontext_MySql.Employees.ToListAsync();
+        }
+
+        public async Task<List<Employee_SqlServer>> GetAllEmployees()
+        {
+            List<Employee_MySql> employees_MySql = await GetAll_MySql();
+            List<Employee_SqlServer> employees_SqlServer = await GetAll_SqlServer();
+
+            List<Employee_SqlServer> hoSoNhanViens = employees_SqlServer
+           .Where(sqlEmp => employees_SqlServer
+           .Any(myEmp => myEmp.EmployeeID == sqlEmp.EmployeeID))
+           .ToList();
+
+            return hoSoNhanViens;
         }
         // End 
        

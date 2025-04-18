@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KbUyCtjPHwQCudtPO9igWJrRZn9aYM/V+KyoLy4nL2k=",
+  "Hash": "w1TUGuj0J8HaplqMDQk2cVDelsNWOE3qQzPCEXF4iaU=",
   "Source": "ManagementDashboard.UI",
   "BasePath": "_content/ManagementDashboard.UI",
   "Mode": "Default",
@@ -10,10 +10,30 @@
     {
       "Name": "ManagementDashboard.UI\\wwwroot",
       "Source": "ManagementDashboard.UI",
-      "ContentRoot": "C:\\ManagementDashboard_Project\\ManagementDashboard.Solution\\ManagementDashboard.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\trana\\OneDrive\\Máy tính\\HR-PRD-445\\ManagementDashboard_Project\\ManagementDashboard.Solution\\ManagementDashboard.UI\\wwwroot\\",
       "BasePath": "_content/ManagementDashboard.UI",
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\trana\\OneDrive\\Máy tính\\HR-PRD-445\\ManagementDashboard_Project\\ManagementDashboard.Solution\\ManagementDashboard.UI\\wwwroot\\Rotativa\\wkhtmltopdf.exe",
+      "SourceId": "ManagementDashboard.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\trana\\OneDrive\\Máy tính\\HR-PRD-445\\ManagementDashboard_Project\\ManagementDashboard.Solution\\ManagementDashboard.UI\\wwwroot\\",
+      "BasePath": "_content/ManagementDashboard.UI",
+      "RelativePath": "Rotativa/wkhtmltopdf.exe",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Rotativa\\wkhtmltopdf.exe"
+    }
+  ]
 }

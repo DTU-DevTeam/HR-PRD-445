@@ -1,4 +1,6 @@
 ﻿using ManagementDashboard.Core.Domain.Entities;
+using ManagementDashboard.Core.Enums;
+using ManagementDashboard.Core.Services.PayRollServices;
 using ManagementDashboard.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,23 +9,28 @@ namespace ManagementDashboard.UI.Controllers
     [Route("[Controller]/[action]")]
     public class PayRollController : Controller
     {
-        public readonly PayRollRepository _PayRollRepository;
-        public readonly DepartmentsRepository _DepartmentsRepository;
+        public readonly PayRollGetterService _payRollGetterService;
+        public readonly PayRollSorterService _payRollSorterService;
 
-        public PayRollController(PayRollRepository payRollRepository, DepartmentsRepository departmentsRepository)
+        public PayRollController(PayRollGetterService payRollGetterService, PayRollSorterService payRollSorterService)
         {
-            
-            _PayRollRepository = payRollRepository;
-            _DepartmentsRepository = departmentsRepository;
+
+            _payRollGetterService = payRollGetterService;
+            _payRollSorterService = payRollSorterService;
         }
 
         
         [HttpGet]
-        public IActionResult PayRolls()
+        public async Task<IActionResult> Salaries(string searchBy, string? searchString, string sortBy = nameof(Employee_SqlServer.EmployeeID), SortOrderOptions sortOrderOptions = SortOrderOptions.Ascending)
         {
-            List<PayRoll_MySQL> luongNhanViens = _PayRollRepository.GetAll().Result;
+            List<Salary_MySQL> salaries = _payRollGetterService.GetAllSalaries().Result;
 
-            return View(luongNhanViens);
+            List<Salary_MySQL> salariesSorter = _payRollSorterService.GetSortedSalaries(salaries, sortBy, sortOrderOptions);
+
+            ViewBag.CurrentSortBy = $"{sortBy}";
+            ViewBag.CurrentSortOrder = $"{sortOrderOptions}";
+
+            return View(salariesSorter);
         }
     }
 }

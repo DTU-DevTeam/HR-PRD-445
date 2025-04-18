@@ -1,3 +1,6 @@
+using ManagementDashboard.Core.RepositoryContract;
+using ManagementDashboard.Core.Services.HRServices;
+using ManagementDashboard.Core.Services.PayRollServices;
 using ManagementDashboard.Infrastructure.DatabaseContext;
 using ManagementDashboard.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +17,12 @@ builder.Services.AddDbContext<ApplicationDbContext_SqlServer>(options =>{
 });
 
 
+builder.Services.AddScoped<IEmployeesRepository, EmployeesRepository>();
+builder.Services.AddScoped<IPayRollRepository, PayRollRepository>();
+builder.Services.AddScoped<HRGetterService>();
+builder.Services.AddScoped<HRSorterService>();
+builder.Services.AddScoped<PayRollGetterService>();
+builder.Services.AddScoped<PayRollSorterService>();
 //Connection to MySQL
 
 var mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnectionMySQL");
@@ -22,10 +31,8 @@ builder.Services.AddDbContext<ApplicationDbContext_MySql>(options =>
 options.UseMySql(mySqlConnection, ServerVersion.AutoDetect(mySqlConnection))
 );
 
-builder.Services.AddScoped<EmployeesRepository>();
-builder.Services.AddScoped<ApplicantsRepository>();
-builder.Services.AddScoped<DepartmentsRepository>();
-builder.Services.AddScoped<PayRollRepository>();
+
+
 
 var app = builder.Build();
 

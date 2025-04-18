@@ -9,3 +9,15 @@ C:\ManagementDashboard_Project\ManagementDashboard.Solution\Management.Core\obj\
 C:\ManagementDashboard_Project\ManagementDashboard.Solution\Management.Core\obj\Debug\net8.0\refint\ManagementDashboard.Core.dll
 C:\ManagementDashboard_Project\ManagementDashboard.Solution\Management.Core\obj\Debug\net8.0\ManagementDashboard.Core.pdb
 C:\ManagementDashboard_Project\ManagementDashboard.Solution\Management.Core\obj\Debug\net8.0\ref\ManagementDashboard.Core.dll
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\Management.Core\bin\Debug\net8.0\ManagementDashboard.Core.deps.json
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\Management.Core\bin\Debug\net8.0\ManagementDashboard.Core.dll
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\Management.Core\bin\Debug\net8.0\ManagementDashboard.Core.pdb
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\Management.Core\obj\Debug\net8.0\ManagementDashboard.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\Management.Core\obj\Debug\net8.0\ManagementDashboard.Core.AssemblyInfoInputs.cache
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\Management.Core\obj\Debug\net8.0\ManagementDashboard.Core.AssemblyInfo.cs
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\Management.Core\obj\Debug\net8.0\ManagementDashboard.Core.csproj.CoreCompileInputs.cache
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\Management.Core\obj\Debug\net8.0\ManagementDashboard.Core.sourcelink.json
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\Management.Core\obj\Debug\net8.0\ManagementDashboard.Core.dll
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\Management.Core\obj\Debug\net8.0\refint\ManagementDashboard.Core.dll
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\Management.Core\obj\Debug\net8.0\ManagementDashboard.Core.pdb
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\Management.Core\obj\Debug\net8.0\ref\ManagementDashboard.Core.dll

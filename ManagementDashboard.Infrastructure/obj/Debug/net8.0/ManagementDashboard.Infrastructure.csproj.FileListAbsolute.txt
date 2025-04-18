@@ -13,3 +13,19 @@ C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.
 C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\refint\ManagementDashboard.Infrastructure.dll
 C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ManagementDashboard.Infrastructure.pdb
 C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ref\ManagementDashboard.Infrastructure.dll
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\bin\Debug\net8.0\ManagementDashboard.Infrastructure.deps.json
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\bin\Debug\net8.0\ManagementDashboard.Infrastructure.dll
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\bin\Debug\net8.0\ManagementDashboard.Infrastructure.pdb
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\bin\Debug\net8.0\ManagementDashboard.Core.dll
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\bin\Debug\net8.0\ManagementDashboard.Core.pdb
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ManagementDashboard.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ManagementDashboard.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ManagementDashboard.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ManagementDashboard.Infrastructure.AssemblyInfo.cs
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ManagementDashboard.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ManagementDashboard.Infrastructure.sourcelink.json
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\Manageme.B77A129A.Up2Date
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ManagementDashboard.Infrastructure.dll
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\refint\ManagementDashboard.Infrastructure.dll
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ManagementDashboard.Infrastructure.pdb
+C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.Infrastructure\obj\Debug\net8.0\ref\ManagementDashboard.Infrastructure.dll

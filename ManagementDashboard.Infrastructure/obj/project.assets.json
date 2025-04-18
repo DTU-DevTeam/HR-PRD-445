@@ -2906,22 +2906,25 @@
   },
   "packageFolders": {
     "C:\\Users\\trana\\.nuget\\packages\\": {},
+    "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ManagementDashboard_Project\\ManagementDashboard.Solution\\ManagementDashboard.Infrastructure\\ManagementDashboard.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\trana\\OneDrive\\Máy tính\\HR-PRD-445\\ManagementDashboard_Project\\ManagementDashboard.Solution\\ManagementDashboard.Infrastructure\\ManagementDashboard.Infrastructure.csproj",
       "projectName": "ManagementDashboard.Infrastructure",
-      "projectPath": "C:\\ManagementDashboard_Project\\ManagementDashboard.Solution\\ManagementDashboard.Infrastructure\\ManagementDashboard.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\trana\\OneDrive\\Máy tính\\HR-PRD-445\\ManagementDashboard_Project\\ManagementDashboard.Solution\\ManagementDashboard.Infrastructure\\ManagementDashboard.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\trana\\.nuget\\packages\\",
-      "outputPath": "C:\\ManagementDashboard_Project\\ManagementDashboard.Solution\\ManagementDashboard.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\trana\\OneDrive\\Máy tính\\HR-PRD-445\\ManagementDashboard_Project\\ManagementDashboard.Solution\\ManagementDashboard.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\trana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2930,6 +2933,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -2937,8 +2941,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\ManagementDashboard_Project\\ManagementDashboard.Solution\\Management.Core\\ManagementDashboard.Core.csproj": {
-              "projectPath": "C:\\ManagementDashboard_Project\\ManagementDashboard.Solution\\Management.Core\\ManagementDashboard.Core.csproj"
+            "C:\\Users\\trana\\OneDrive\\Máy tính\\HR-PRD-445\\ManagementDashboard_Project\\ManagementDashboard.Solution\\Management.Core\\ManagementDashboard.Core.csproj": {
+              "projectPath": "C:\\Users\\trana\\OneDrive\\Máy tính\\HR-PRD-445\\ManagementDashboard_Project\\ManagementDashboard.Solution\\Management.Core\\ManagementDashboard.Core.csproj"
             }
           }
         }

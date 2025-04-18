@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\trana\\OneDrive\\Máy tính\\HR-PRD-445\\ManagementDashboard_Project\\ManagementDashboard.Solution\\ManagementDashboard.UI\\wwwroot\\Rotativa\\wkhtmltopdf.exe",
+      "PackagePath": "staticwebassets\\Rotativa\\wkhtmltopdf.exe"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ManagementDashboard.UI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.ManagementDashboard.UI.props",
+      "PackagePath": "build\\ManagementDashboard.UI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ManagementDashboard.UI.props",
+      "PackagePath": "buildMultiTargeting\\ManagementDashboard.UI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.ManagementDashboard.UI.props",
+      "PackagePath": "buildTransitive\\ManagementDashboard.UI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,5 +1,7 @@
 ﻿using ManagementDashboard.Core.Domain.Entities;
 using ManagementDashboard.Core.Dto;
+using ManagementDashboard.Core.Enums;
+using ManagementDashboard.Core.Services.HRServices;
 using ManagementDashboard.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,40 +11,35 @@ namespace ManagementDashboard.UI.Controllers
     [Route("[Controller]/[action]")]
     public class HRController : Controller
     {
-        public readonly EmployeesRepository _EmployeeRepository;
-        public readonly PayRollRepository _PayRollRepository;
-        public readonly DepartmentsRepository _DepartmentsRepository;
-        public readonly ApplicantsRepository _ApplicantsRepository;
+        public readonly HRGetterService _hrGetterService;
+        public readonly HRSorterService _hrSorterService;
+       
 
-        public HRController(EmployeesRepository employeesRepository, PayRollRepository payRollRepository, DepartmentsRepository departmentsRepository, ApplicantsRepository applicantsRepository)
+        public HRController(HRGetterService hrGetterService, HRSorterService hrSorterService)
         {
-            _EmployeeRepository = employeesRepository;
-            _PayRollRepository = payRollRepository;
-            _DepartmentsRepository = departmentsRepository;
-            _ApplicantsRepository = applicantsRepository;
-        }
-
-         [Route("/")]
-        [HttpGet]
-        public IActionResult Employees()
-        {
-            List<Employee_SqlServer> hoSoNhanViens = _EmployeeRepository.GetAll_SqlServer().Result;
-
-            return View(hoSoNhanViens);
-
+            _hrGetterService = hrGetterService;
+            _hrSorterService = hrSorterService;
+           
         }
 
         
         [HttpGet]
-        public IActionResult PayRoll()
+        public async Task<IActionResult> Employees(string searchBy, string? searchString, string sortBy = nameof(Employee_SqlServer.EmployeeID), SortOrderOptions sortOrderOptions = SortOrderOptions.Ascending)
         {
-            List<PayRoll_MySQL> luongNhanViens = _PayRollRepository.GetAll().Result;
+            List<Employee_SqlServer> hoSoNhanViens_SqlServer = _hrGetterService.GetAllEmployees().Result;
 
-            return View(luongNhanViens);
+
+            hoSoNhanViens_SqlServer = _hrSorterService.GetSortedPersons(hoSoNhanViens_SqlServer, sortBy, sortOrderOptions);
+
+            ViewBag.CurrentSortBy = $"{sortBy}";
+            ViewBag.CurrentSortOrder = $"{sortOrderOptions}";
+
+            return View(hoSoNhanViens_SqlServer);
+
         }
         
        
-        [HttpGet]
+ /*       [HttpGet]
         public IActionResult AddEmployee()
         {
             //get departments
@@ -52,7 +49,7 @@ namespace ManagementDashboard.UI.Controllers
 
             return View();
         }
-
+/*
         
         [HttpPost]
         public async Task<IActionResult> AddEmployee(AddEmployee_Request request)
@@ -64,10 +61,7 @@ namespace ManagementDashboard.UI.Controllers
 
             Employee_SqlServer employee = new Employee_SqlServer
             {
-                DepartmentID = request.DepartmentID,
-                ApplicantID = request.ApplicantID,
-                HireDate = request.HireDate,
-                Salary = request.Salary,
+                
                 Status = "Active"
 
             };
@@ -79,7 +73,7 @@ namespace ManagementDashboard.UI.Controllers
 
             //Đồng bộ dữ liệu vói employees trong  PayRoll database (MySQL)
 
-            var employee_SqlServer =  _EmployeeRepository._dbcontext_SqlServer.Employees.Where(x => x.ApplicantID == request.ApplicantID);
+           /* var employee_SqlServer =  _EmployeeRepository._dbcontext_SqlServer.Employees.Where(x => x.ApplicantID == request.ApplicantID);
             Employee_SqlServer? employee_SqlServer1 = await employee_SqlServer.FirstOrDefaultAsync(x => x.DepartmentID == request.DepartmentID);
 
             if (employee_SqlServer1 == null) {
@@ -87,10 +81,10 @@ namespace ManagementDashboard.UI.Controllers
             }
 
 
-            Applicant_SqlServer? applicant_SqlServer = await _ApplicantsRepository._dbcontext.Applicants.FindAsync(request.ApplicantID);
+          //  Applicant_SqlServer? applicant_SqlServer = await _ApplicantsRepository._dbcontext.Applicants.FindAsync(request.ApplicantID);
             
 
-            Employee_MySql employee_MySql = new Employee_MySql
+          /*  Employee_MySql employee_MySql = new Employee_MySql
             {
                 Employee_ID = employee_SqlServer1.EmployeeID,
                 First_Name = applicant_SqlServer.FirstName,
@@ -106,7 +100,7 @@ namespace ManagementDashboard.UI.Controllers
 
             };
 
-            await _EmployeeRepository.AddEmployee_MySql(employee_MySql);
+          //  await _EmployeeRepository.AddEmployee_MySql(employee_MySql);
 
 
 
@@ -147,7 +141,7 @@ namespace ManagementDashboard.UI.Controllers
                 return NotFound();
             }
 
-            employee.DepartmentID = editEmployee_Request.DepartmentID;
+         /*   employee.DepartmentID = editEmployee_Request.DepartmentID;
             employee.ApplicantID = editEmployee_Request.ApplicantID;
             employee.HireDate = editEmployee_Request.HireDate;
             employee.Salary = editEmployee_Request.Salary;
@@ -175,6 +169,6 @@ namespace ManagementDashboard.UI.Controllers
 
             return RedirectToAction("Employees", "HR");
         }
-
+*/
     }
 }

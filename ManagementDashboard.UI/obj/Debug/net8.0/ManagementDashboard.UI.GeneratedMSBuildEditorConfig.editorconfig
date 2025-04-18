@@ -9,39 +9,43 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ManagementDashboard.UI
 build_property.RootNamespace = ManagementDashboard.UI
-build_property.ProjectDir = C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.UI\
+build_property.ProjectDir = C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.UI\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.UI
+build_property.MSBuildProjectDirectory = C:\Users\trana\OneDrive\Máy tính\HR-PRD-445\ManagementDashboard_Project\ManagementDashboard.Solution\ManagementDashboard.UI
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/ManagementDashboard_Project/ManagementDashboard.Solution/ManagementDashboard.UI/Views/HR/AddEmployee.cshtml]
+[C:/Users/trana/OneDrive/Máy tính/HR-PRD-445/ManagementDashboard_Project/ManagementDashboard.Solution/ManagementDashboard.UI/Views/HR/AddEmployee.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcQWRkRW1wbG95ZWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManagementDashboard_Project/ManagementDashboard.Solution/ManagementDashboard.UI/Views/HR/EditEmployee.cshtml]
+[C:/Users/trana/OneDrive/Máy tính/HR-PRD-445/ManagementDashboard_Project/ManagementDashboard.Solution/ManagementDashboard.UI/Views/HR/EditEmployee.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcRWRpdEVtcGxveWVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManagementDashboard_Project/ManagementDashboard.Solution/ManagementDashboard.UI/Views/HR/Employees.cshtml]
+[C:/Users/trana/OneDrive/Máy tính/HR-PRD-445/ManagementDashboard_Project/ManagementDashboard.Solution/ManagementDashboard.UI/Views/HR/Employees.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcRW1wbG95ZWVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManagementDashboard_Project/ManagementDashboard.Solution/ManagementDashboard.UI/Views/PayRoll/PayRolls.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5Um9sbFxQYXlSb2xscy5jc2h0bWw=
+[C:/Users/trana/OneDrive/Máy tính/HR-PRD-445/ManagementDashboard_Project/ManagementDashboard.Solution/ManagementDashboard.UI/Views/PayRoll/Salaries.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5Um9sbFxTYWxhcmllcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManagementDashboard_Project/ManagementDashboard.Solution/ManagementDashboard.UI/Views/Shared/_Layout.cshtml]
+[C:/Users/trana/OneDrive/Máy tính/HR-PRD-445/ManagementDashboard_Project/ManagementDashboard.Solution/ManagementDashboard.UI/Views/Shared/_GridColumnHeader.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9HcmlkQ29sdW1uSGVhZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trana/OneDrive/Máy tính/HR-PRD-445/ManagementDashboard_Project/ManagementDashboard.Solution/ManagementDashboard.UI/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManagementDashboard_Project/ManagementDashboard.Solution/ManagementDashboard.UI/Views/_ViewImports.cshtml]
+[C:/Users/trana/OneDrive/Máy tính/HR-PRD-445/ManagementDashboard_Project/ManagementDashboard.Solution/ManagementDashboard.UI/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManagementDashboard_Project/ManagementDashboard.Solution/ManagementDashboard.UI/Views/_ViewStart.cshtml]
+[C:/Users/trana/OneDrive/Máy tính/HR-PRD-445/ManagementDashboard_Project/ManagementDashboard.Solution/ManagementDashboard.UI/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

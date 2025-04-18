@@ -14,7 +14,9 @@ namespace ManagementDashboard.Core.Domain.Entities
 
         public string? DepartmentName { get; set; }
 
-        public int ManagerId { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        public DateTime UpdatedAt { get; set; }
     }
 
     public class Department_MySql
@@ -24,7 +26,7 @@ namespace ManagementDashboard.Core.Domain.Entities
 
         public string? Department_Name { get; set; }
 
-        public int Manager_ID { get; set; }
+        
     }
 
 
