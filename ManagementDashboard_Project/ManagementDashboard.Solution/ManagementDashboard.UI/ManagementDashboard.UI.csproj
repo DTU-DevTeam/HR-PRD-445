@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Management.Core\ManagementDashboard.Core.csproj" />
+    <ProjectReference Include="..\Management.Core\Management.Core.csproj" />
     <ProjectReference Include="..\ManagementDashboard.Infrastructure\ManagementDashboard.Infrastructure.csproj" />
   </ItemGroup>
 
