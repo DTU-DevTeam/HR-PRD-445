@@ -1,0 +1,109 @@
+﻿@model List<Employee_SqlServer>;
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+@{
+    //ViewBag.Title = "HR";
+    ViewBag.CurrentUrl = "hr/employees";
+  
+}
+
+<form asp-controller="hr" asp-action="Employess" method="get">
+
+    <div class="table-responsive">
+        <table class="table table-sm table-striped table-hover table-bordered align-middle text-center">
+            <thead class="table-dark text-center">
+                <tr>
+                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+                    { "ColumnName", nameof(Employee_SqlServer.EmployeeID) },
+                    { "DisplayName", "Employee ID" },
+                    })
+
+                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+                    { "ColumnName", nameof(Employee_SqlServer.FullName) },
+                    { "DisplayName", "Full Name" },
+                    })
+
+                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+                    { "ColumnName", nameof(Employee_SqlServer.DateOfBirth) },
+                    { "DisplayName", "Date of Birth" },
+                    })
+
+                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+                    { "ColumnName", nameof(Employee_SqlServer.Gender) },
+                    { "DisplayName", "Gender" },
+                    })
+
+                    <th>Phone Number</th>
+
+                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+                    { "ColumnName", nameof(Employee_SqlServer.Email) },
+                    { "DisplayName", "Email" },
+                    })
+
+                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+                    { "ColumnName", nameof(Employee_SqlServer.HireDate) },
+                    { "DisplayName", "Hire Date" },
+                    })
+
+                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+                    { "ColumnName", nameof(Employee_SqlServer.DepartmentID) },
+                    { "DisplayName", "Department ID" },
+                    })
+
+                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+                    { "ColumnName", nameof(Employee_SqlServer.PositionID) },
+                    { "DisplayName", "Position ID" },
+                    })
+
+                    <th>Status</th>
+
+                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+                    { "ColumnName", nameof(Employee_SqlServer.CreatedAt) },
+                    { "DisplayName", "Created At" },
+                    })
+
+                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+                    { "ColumnName", nameof(Employee_SqlServer.UpdatedAt) },
+                    { "DisplayName", "Updated At" },
+                    })
+
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.EmployeeID</td>
+                        <td>@item.FullName</td>
+                        <td>@item.DateOfBirth.ToString("dd/MM/yyyy")</td>
+                        <td>@item.Gender</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>@item.Email</td>
+                        <td>@item.HireDate.ToString("dd/MM/yyyy")</td>
+                        <td>@item.DepartmentID</td>
+                        <td>@item.PositionID</td>
+                        <td>@item.Status</td>
+                        <td>@item.CreatedAt.ToString("dd/MM/yyyy")</td>
+                        <td>@item.UpdatedAt.ToString("dd/MM/yyyy")</td>
+                        <td class="text-center">
+                            <a class="btn btn-sm btn-primary me-1" asp-controller="HR" asp-action="EditEmployee" asp-route-id="@item.EmployeeID">Edit</a>
+                            <a class="btn btn-sm btn-danger" asp-controller="HR" asp-action="DeleteEmployee" asp-route-id="@item.EmployeeID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</form>
+
+<style>
+    th, td {
+        text-align: center;
+        vertical-align: middle !important;
+        white-space: nowrap;
+    }
+
+</style>
+
+

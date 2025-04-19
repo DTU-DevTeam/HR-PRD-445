@@ -1,0 +1,68 @@
+# ============================
+# Node.js (frontend)
+# ============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.env
+.env.*
+
+# Build output
+dist/
+build/
+
+# Vite
+.vite/
+.vitepress/
+
+# Next.js
+.next/
+out/
+
+# ============================
+# .NET (backend)
+# ============================
+bin/
+obj/
+.exe
+.dll
+.app
+.pdb
+.cache
+.suo
+.user
+.userosscache
+.sln.docstates
+.vs/
+TestResults/
+vscode/
+
+# ASP.NET static files
+wwwroot/
+
+# Entity Framework
+Migrations/
+
+# ============================
+# System files
+# ============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# ============================
+# IDEs & Tools
+# ============================
+.vscode/
+.idea/
+.swp
+
+# ============================
+# Others
+# ============================
+coverage/

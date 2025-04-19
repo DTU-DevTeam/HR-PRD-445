@@ -1,0 +1,41 @@
+﻿@using ManagementDashboard.Core.Dto;
+@using ManagementDashboard.Core.Domain.Entities;
+@model AddEmployee_Request;
+
+@{
+    List<Department_SqlServer> departments = ViewBag.Departments;
+}
+
+<p1>Them Nv</p1>
+<form asp-controller="HR" asp-action="AddEmployee" method="post">
+    <div class="form-group">
+
+        <label asp-for="ApplicantID" class="control-label">Application ID: </label>
+        <input asp-for="ApplicantID" type="text" class="form-control" />
+
+        <br />
+
+        <label asp-for="DepartmentID" class="control-label">Department Name: </label>
+        <select asp-for="DepartmentID" class="form-control">
+            @foreach (var department in departments)
+            {
+                <option value="@department.DepartmentId">@department.DepartmentName</option>
+            }
+
+        </select>
+
+        <br />
+
+        <label asp-for="HireDate" class="control-label">Hired Date: </label>
+        <input asp-for="HireDate" type="date" class="form-control" />
+
+        <br />
+
+        <label asp-for="Salary" class="control-label">Salary: </label>
+        <input asp-for="Salary" type="number" class="form-control" />
+
+        <br />
+
+        <button type="submit" class="btn btn-primary mt-3">Thêm nhân viên</button>
+    </div>
+</form>
