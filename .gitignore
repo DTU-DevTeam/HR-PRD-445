@@ -26,18 +26,18 @@ out/
 # ============================
 bin/
 obj/
-*.exe
-*.dll
-*.app
-*.pdb
-*.cache
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-*.vs/
+.exe
+.dll
+.app
+.pdb
+.cache
+.suo
+.user
+.userosscache
+.sln.docstates
+.vs/
 TestResults/
-.vscode/
+vscode/
 
 # ASP.NET static files
 wwwroot/
@@ -60,7 +60,7 @@ desktop.ini
 # ============================
 .vscode/
 .idea/
-*.swp
+.swp
 
 # ============================
 # Others
