@@ -16,7 +16,14 @@
 body {
   font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
-  background-color: #eaedf4;
+  background-image: linear-gradient(
+    to top,
+    #0c3483 0%,
+    #a2b6df 100%,
+    #6b8cce 100%,
+    #a2b6df 100%
+  );
+  color: #fff;
 }
 
 .app-container {
@@ -29,7 +36,7 @@ body {
   width: var(--sidebar-width);
   height: 100vh;
   position: fixed;
-  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
   padding: 1.5rem 0;
   display: flex;
@@ -117,15 +124,15 @@ body {
 
 /* Hover */
 .nav-item:hover {
-  background: linear-gradient(
-    125deg,
-    #ffffff 0%,
-    #717b8e,
-    #2e3b55,
-    #081a42 100%
+  background-image: linear-gradient(
+    to top,
+    #0c3483 0%,
+    #a2b6df 100%,
+    #6b8cce 100%,
+    #a2b6df 100%
   );
   color: #ffffff;
-  box-shadow: 0 0 15px rgba(89, 88, 88, 0.8);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
 
 .nav-item:hover .nav-icon {
@@ -144,12 +151,12 @@ body {
 
 /* Active state */
 .nav-item.active-link {
-  background: linear-gradient(
-    125deg,
-    #ffffff 0%,
-    #717b8e,
-    rgb(46, 59, 85),
-    #081a42 100%
+  background-image: linear-gradient(
+    to top,
+    #0c3483 0%,
+    #a2b6df 100%,
+    #6b8cce 100%,
+    #a2b6df 100%
   );
   color: #3fc9ff;
   font-weight: bold;
@@ -230,10 +237,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffffff;
+  background-image: var(--transition-speed);
   padding: 1rem 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease-in-out;
   height: var(--header-height);
 }
@@ -244,11 +250,11 @@ body {
   top: 15px;
   left: 34px;
   right: 25px;
-  background: rgba(46, 59, 85, 0.98);
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+
   box-shadow: 0 4px 12px rgba(46, 59, 85, 0.102);
   backdrop-filter: blur(10px);
   border-radius: 12px;
-  border-bottom: 1px solid rgba(46, 59, 85, 0.05);
 }
 
 /* Show/Hide Header Effect */
@@ -372,6 +378,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+.dashboard-title {
+  display: flex;
+  font-size: 3rem;
+  user-select: none;
+  margin-left: 25px;
 }
 
 /* Grid Layout */

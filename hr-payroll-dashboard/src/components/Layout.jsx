@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import '../App.css';
 
 const Layout = () => {
@@ -7,13 +7,13 @@ const Layout = () => {
   const [isHidden, setIsHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const lastScrollTop = useRef(0);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    navigate('/');
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   navigate('/');
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   useEffect(() => {
     setIsSidebarOpen(false);
@@ -123,11 +123,11 @@ const Layout = () => {
             <input type="text" placeholder="Search..." />
           </div>
           <div className="user-actions">
-            <button className="icon-btn">
+            <button title='Notifications' className="icon-btn">
               <i className="fas fa-bell"></i>
               <span className="badge">10+</span>
             </button>
-            <button className="icon-btn">
+            <button title='Settings' className="icon-btn">
               <i className="fas fa-cog"></i>
             </button>
             <div className="user-profile">
@@ -136,8 +136,8 @@ const Layout = () => {
                 alt="User"
               />
               <div>
-                <span className={`username ${scrolled ? 'scrolled' : ''}`}>Tuan, Le Minh</span>
-                <span className={`user-role ${scrolled ? 'scrolled' : ''}`}>Admin</span>
+                <span title='Username' className={`username ${scrolled ? 'scrolled' : ''}`}>Tuan, Le Minh</span>
+                <span title='Role' className={`user-role ${scrolled ? 'scrolled' : ''}`}>Admin</span>
               </div>
             </div>
           </div>
