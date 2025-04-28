@@ -136,8 +136,8 @@ const Layout = () => {
                 alt="User"
               />
               <div>
-                <span title='Username' className={`username ${scrolled ? 'scrolled' : ''}`}>Tuan, Le Minh</span>
-                <span title='Role' className={`user-role ${scrolled ? 'scrolled' : ''}`}>Admin</span>
+                <span title='Username' className={`username ${scrolled ? 'scrolled' : ''}`}>Username</span>
+                <span title='Role' className={`user-role ${scrolled ? 'scrolled' : ''}`}>Role</span>
               </div>
             </div>
           </div>
