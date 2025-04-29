@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import Employees from './pages/Employees';
@@ -13,7 +13,6 @@ import './pages/Login.css';
 
 const SESSION_TIMEOUT = 20 * 60 * 1000;
 
-
 const setSessionTimeout = () => {
     const expiryTime = Date.now() + SESSION_TIMEOUT;
     localStorage.setItem('sessionExpiry', expiryTime);
@@ -21,6 +20,8 @@ const setSessionTimeout = () => {
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const checkSessionTimeout = () => {
     const expiryTime = localStorage.getItem('sessionExpiry');
@@ -33,54 +34,79 @@ const App = () => {
   const handleLogin = () => {
     setIsLoggedIn(true);
     setSessionTimeout();
+    navigate('/');
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('sessionExpiry');
+    navigate('/login');
   };
 
   useEffect(() => {
-    if (!isLoggedIn) return;
+    const checkSession = () => {
+      const expiryTime = localStorage.getItem('sessionExpiry');
+      const isSessionValid = expiryTime && Date.now() < Number(expiryTime);
 
-    const resetSessionTimeout = () => {
-      setSessionTimeout();
+      if (isSessionValid) {
+        setIsLoggedIn(true);
+        if (location.pathname === '/login') {
+          navigate('/');
+        }
+      } else {
+        setIsLoggedIn(false);
+        localStorage.removeItem('sessionExpiry');
+        if (location.pathname !== '/login') {
+          navigate('/login');
+        }
+      }
     };
 
-    const events = ['click', 'keypress', 'mousemove', 'scroll'];
-    events.forEach((event) => {
-      window.addEventListener(event, resetSessionTimeout);
-    });
-
-    const interval = setInterval(checkSessionTimeout, 1000);
-
-    return () => {
-      events.forEach((event) => {
-        window.removeEventListener(event, resetSessionTimeout);
-      });
-      clearInterval(interval);
-    };
-  }, [isLoggedIn]);
+    checkSession();
+  }, [navigate, location.pathname]);
 
   useEffect(() => {
     checkSessionTimeout();
-    if (localStorage.getItem('sessionExpiry')) {
+    const hasSession = localStorage.getItem('sessionExpiry');
+
+    if (hasSession && location.pathname === '/login') {
       setIsLoggedIn(true);
+      navigate('/');
+    } else if (!hasSession && location.pathname !== '/login') {
+      navigate('/login');
     }
-  }, []);
+  }, [navigate, location.pathname]);
 
   return (
-    <Router>
-      {isLoggedIn ? (
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/employees" element={<Employees />} />
-            <Route path="/payroll-attendance" element={<PayrollAttendance />} />
-            <Route path="/reports-analytics" element={<ReportsAnalytics />} />
-            <Route path="/alerts-notifications" element={<AlertsNotifications />} />
-            <Route path="/security-access" element={<SecurityAccess />} />
-          </Route>
-        </Routes>
-      ) : (
-        <Login onLogin={handleLogin} />
-      )}
-    </Router>
+    <Routes>
+      {/* Route cho trang đăng nhập */}
+      <Route
+        path="/login"
+        element={<Login onLogin={handleLogin} />}
+      />
+
+      {/* Các route được bảo vệ */}
+      <Route element={<Layout onLogout={handleLogout} />}>
+        <Route path="/" element={isLoggedIn ? <Dashboard /> : <Login onLogin={handleLogin} />} />
+        <Route path="/employees" element={isLoggedIn ? <Employees /> : <Login onLogin={handleLogin} />} />
+        <Route
+          path="/payroll-attendance"
+          element={isLoggedIn ? <PayrollAttendance /> : <Login onLogin={handleLogin} />}
+        />
+        <Route
+          path="/reports-analytics"
+          element={isLoggedIn ? <ReportsAnalytics /> : <Login onLogin={handleLogin} />}
+        />
+        <Route
+          path="/alerts-notifications"
+          element={isLoggedIn ? <AlertsNotifications /> : <Login onLogin={handleLogin} />}
+        />
+        <Route
+          path="/security-access"
+          element={isLoggedIn ? <SecurityAccess /> : <Login onLogin={handleLogin} />}
+        />
+      </Route>
+    </Routes>
   );
 };
 

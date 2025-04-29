@@ -28,7 +28,7 @@ const Employees = () => {
   return (
     <div className="dashboard-content">
       <h1 className="dashboard-title">Employees</h1>
-      {isLoading && <div className="loader"></div>}
+      {isLoading && <div className="loader2"></div>}
       {error && (
         <div className="error-message">
           Error: {error}

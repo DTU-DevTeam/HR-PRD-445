@@ -2,18 +2,13 @@ import React, { useEffect, useState, useRef } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import '../App.css';
 
-const Layout = () => {
+const Layout = ({ onLogout }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const lastScrollTop = useRef(0);
-  // const navigate = useNavigate();
   const location = useLocation();
-
-  // useEffect(() => {
-  //   navigate('/');
-  // // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
 
   useEffect(() => {
     setIsSidebarOpen(false);
@@ -48,6 +43,22 @@ const Layout = () => {
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  // Hàm mở modal xác nhận đăng xuất
+  const openLogoutModal = () => {
+    setIsLogoutModalOpen(true);
+  };
+
+  // Hàm đóng modal
+  const closeLogoutModal = () => {
+    setIsLogoutModalOpen(false);
+  };
+
+  // Hàm xử lý đăng xuất
+  const handleLogout = () => {
+    setIsLogoutModalOpen(false);
+    onLogout(); // Điều hướng về trang Login
   };
 
   const navItems = [
@@ -92,7 +103,7 @@ const Layout = () => {
           <ul className="logout">
             <li
               className="nav-item-logout nav-logout"
-              onClick={() => alert('Successfully logged out!')}
+              onClick={openLogoutModal}
             >
               <img
                 src={`${process.env.PUBLIC_URL}/icons/logoutLogo.png`}
@@ -144,6 +155,25 @@ const Layout = () => {
         </header>
         <Outlet />
       </main>
+
+      {/* Modal xác nhận đăng xuất */}
+      {isLogoutModalOpen && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2>Xác nhận đăng xuất</h2>
+            <p>Bạn có muốn đăng xuất không?</p>
+            <div className="modal-buttons">
+              <button onClick={handleLogout} className="modal-btn confirm-btn">
+                Yes
+              </button>
+              <button onClick={closeLogoutModal} className="modal-btn cancel-btn">
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      
     </div>
   );
 };

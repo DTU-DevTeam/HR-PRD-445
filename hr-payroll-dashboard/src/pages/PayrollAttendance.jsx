@@ -26,7 +26,7 @@ const PayrollAttendance = () => {
   return (
     <div className="dashboard-content">
       <h1 className="dashboard-title">Payroll & Attendance</h1>
-      {isLoading && <div className="loader"></div>}
+      {isLoading && <div className="loader3"></div>}
       {error && (
         <div className="error-message">
           Error: {error}

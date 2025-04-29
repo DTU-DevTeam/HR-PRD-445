@@ -65,6 +65,66 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+
+      {/* Footer Section */}
+      <footer>
+        <div className="footer-content">
+          <h3 >
+            <img
+              src={`${process.env.PUBLIC_URL}/Logopage.png`}
+              alt="Company Logo"
+              className="logo-footer"
+            />
+          </h3>
+          <div style={{ marginBottom: '20px' }}>
+            <h3 style={{textAlign: 'left'}}>Our Mission</h3>
+            <p style={{ margin: '10px 0', textAlign: 'justify'}}>
+              Empowering businesses to manage their people smarter.
+            </p>
+            <p style={{ margin: '10px 0', textAlign: 'justify'}}>
+              We are on a mission to simplify and streamline human resource and payroll management through a secure, intuitive, and scalable platform.
+            </p>
+            <p style={{ margin: '10px 0', textAlign: 'justify'}}>
+              Our goal is to help organizations of all sizes save time, reduce errors, and make data-driven decisions by automating core HR processes and ensuring accurate, timely payroll.
+            </p>
+            <p style={{ margin: '10px 0', textAlign: 'justify'}}>
+              By focusing on user experience and compliance, we empower HR teams to focus on what matters most — people.
+            </p>
+          </div>
+          
+          <div style={{ marginBottom: '20px' }}>
+            <h4>Develop by</h4>
+            <div style={{ textAlign: 'justify', display: 'inline-block' }}>
+              <p>● iDTU DevTeam Vietnam, Software Engineering</p>
+              <p>Duy Tan University Campus: 120 Hoang Minh Thao St, Hoa Khanh Nam Ward, Lien Chieu District, Danang City, Viet Nam</p>
+              <p style={{ margin: '10px 0' }}>Follow us:</p>
+            </div>
+            <h5 className="follow-icon">
+              <a href="https://github.com/DTU-DevTeam/HR-PRD-445?tab=readme-ov-file#contact" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={`${process.env.PUBLIC_URL}/icons/github.png`}
+                  alt="GitHub Icon"
+                />
+              </a>
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={`${process.env.PUBLIC_URL}/icons/facebook.png`}
+                  alt="Facebook Icon"
+                />
+              </a>
+              <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={`${process.env.PUBLIC_URL}/icons/linkedin.png`}
+                  alt="Linkedin Icon"
+                />
+              </a>
+            </h5>
+          </div>
+        </div>
+        <div className="copyright" style={{ marginBottom: '20px'}}>
+            <p>Copyright © 2025 iDTU DevTeam Vietnam. All Rights Reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 };
