@@ -28,7 +28,14 @@ const Employees = () => {
   return (
     <div className="dashboard-content">
       <h1 className="dashboard-title">Employees</h1>
-      {isLoading && <div className="loader2"></div>}
+      {isLoading && 
+        <div>
+          <div className="loader2"></div>
+          <div className="loader2-title">
+            Please wait while we load the content...
+          </div>
+        </div>
+      }
       {error && (
         <div className="error-message">
           Error: {error}

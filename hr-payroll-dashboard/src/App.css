@@ -400,6 +400,11 @@ body {
   font-size: 3rem;
   user-select: none;
   margin-left: 25px;
+
+  background: repeating-linear-gradient(to bottom, #0011ff 0%, #08cf9a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Grid Layout */
@@ -584,6 +589,13 @@ footer p {
   position: relative;
   color: #3a548b;
   top: 20px;
+  user-select: none;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 /* Responsive cho footer */
@@ -594,6 +606,17 @@ footer p {
 
   .footer-content > div {
     width: 100%;
+  }
+
+  .header-left {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .digital-clock {
+    margin-left: 0;
+    margin-top: 0.5rem;
   }
 }
 

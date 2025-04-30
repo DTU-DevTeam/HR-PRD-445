@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import '../App.css';
+import DigitalClock from './Clocks/DigitalClock';
+import './Clocks/DigitalClock.css';
 
 const Layout = ({ onLogout }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -129,9 +131,12 @@ const Layout = ({ onLogout }) => {
 
       <main className="main-content">
         <header className={`header-nav ${scrolled ? 'scrolled' : ''} ${isHidden ? 'hidden' : ''}`}>
-          <div className="search-bar">
-            <i className="fas fa-search" style={{ cursor: 'pointer' }}></i>
-            <input type="text" placeholder="Search..." />
+          <div className="header-left">
+            <div className="search-bar">
+              <i className="fas fa-search" style={{ cursor: 'pointer' }}></i>
+              <input type="text" placeholder="Search..." />
+            </div>
+            <DigitalClock />
           </div>
           <div className="user-actions">
             <button title='Notifications' className="icon-btn">

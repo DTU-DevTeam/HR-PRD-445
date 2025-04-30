@@ -149,6 +149,26 @@
   animation: l3 1s infinite linear;
 }
 
+.loader-main-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  background-image: linear-gradient(
+    to top,
+    #0c3483 0%,
+    #a2b6df 100%,
+    #6b8cce 100%,
+    #a2b6df 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
 .login-button:hover {
   opacity: 0.9;
 }
@@ -181,6 +201,29 @@
   user-select: none;
 }
 
+.login-footer {
+  position: fixed;
+  font-style: bold;
+  display: flex;
+  bottom: 0;
+  border-radius: 0;
+  width: 100%;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.login-footer-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  margin-left: 50px;
+}
+
 .contact-link {
   font-family: "Poppins", sans-serif;
   font-size: 20px;
@@ -193,6 +236,48 @@
 
   text-decoration: none;
   transition: color 0.3s;
+}
+
+.sliding-text {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  font-family: "Cambria", serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  animation: slideLeft 50s linear infinite;
+}
+
+.currency-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 100px;
+}
+
+.currency-flag {
+  width: 16px;
+  height: 16px;
+}
+
+.currency-code {
+  font-weight: bold;
+}
+
+.currency-buy {
+  color: rgb(64, 255, 0);
+  font-size: 0.85rem;
+}
+
+.currency-separator {
+  color: white;
+}
+
+.currency-sell {
+  color: rgb(255, 40, 40);
+  font-size: 0.85rem;
 }
 
 .contact-link:hover {
@@ -304,6 +389,17 @@ input:checked + .slider:before {
   font-size: 0.9rem;
 }
 
+@media (max-width: 768px) {
+  .sliding-text {
+    font-size: 0.8rem;
+    animation: slideLeft 15s linear infinite;
+  }
+
+  .login-footer {
+    border-radius: 0;
+  }
+}
+
 @keyframes l3 {
   to {
     transform: rotate(1turn);
@@ -338,5 +434,14 @@ input:checked + .slider:before {
   100% {
     opacity: 0;
     transform: translate(-50%, 150%);
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(70%);
+  }
+  100% {
+    transform: translateX(-500vw);
   }
 }

@@ -1,0 +1,63 @@
+.digital-clock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+
+  background: repeating-linear-gradient(to bottom, #ff0606 0%, #0400ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  font-family: "digital-7", Courier, monospace;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-left: 1rem;
+  margin-top: 0;
+  margin-bottom: 35px;
+  width: auto;
+  height: auto;
+  line-height: 40px;
+  user-select: none;
+  gap: 0px;
+}
+
+.digital-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  transform: translateY(30px);
+}
+
+.header-nav.scrolled .digital-clock span:not(.digital-icon) {
+  background: none;
+  -webkit-text-fill-color: #ffffff;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .digital-clock {
+    font-size: 1rem;
+    width: 100px;
+    height: 36px;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .digital-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .digital-icon {
+    transform: translateY(6px);
+  }
+
+  .header-nav.scrolled .digital-clock span:not(.digital-icon) {
+    background: none;
+    -webkit-text-fill-color: #ffffff;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  }
+}

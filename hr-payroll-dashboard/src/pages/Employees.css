@@ -13,6 +13,7 @@
   margin: 0 auto;
   margin-top: 200px;
 }
+
 .loader2::before {
   content: "";
   position: absolute;
@@ -27,6 +28,17 @@
   clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 95%, -30px 50%);
   animation: l14 1s infinite linear;
 }
+
+.loader2-title {
+  position: relative;
+  font-size: 0.75rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin: 20px 0;
+  top: -10px;
+}
+
 .error-message {
   position: relative;
   font-size: 1.5rem;
