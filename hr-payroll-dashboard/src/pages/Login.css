@@ -439,7 +439,7 @@ input:checked + .slider:before {
 
 @keyframes slideLeft {
   0% {
-    transform: translateX(70%);
+    transform: translateX(60%);
   }
   100% {
     transform: translateX(-500vw);
