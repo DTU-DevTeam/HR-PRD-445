@@ -126,7 +126,7 @@ const Login = ({ onLogin }) => {
             ) : (
                 // Video nền;
                 <div className="login-overlay">
-                    <video autoPlay loop muted className="login-video">
+                    <video autoPlay loop muted preload="auto" className="login-video">
                         <source src="/images/BackVid.mp4" type="video/mp4"/>
                         Your browser does not support the video tag.
                     </video>
@@ -152,6 +152,14 @@ const Login = ({ onLogin }) => {
                             alt="Company Logo"
                             className="login-logo"
                         />
+                        <p className="support">
+                            <img
+                                src={`${process.env.PUBLIC_URL}/icons/support.png`}
+                                alt="Support Logo"
+                                className="support-logo"
+                            />
+                                Support: +84 XXXX 285 09
+                        </p>
                         <a
                             href="https://github.com/DTU-DevTeam/HR-PRD-445?tab=readme-ov-file#contact"
                             target="_blank"
@@ -163,8 +171,11 @@ const Login = ({ onLogin }) => {
                     </header>
 
                     {/* Form login có username + password + nút login + hiện lỗi */}
+                    {/* <div className="login-phone login-choice-container">Phone</div>
+                    <div className="login-qr login-choice-container">QR Code</div> */}
                     <div className="login-container">
                         <h1 className="login-title">Login to HumPay</h1>
+                        
                         <form onSubmit={handleSubmit} className="login-form">
                             
                             {/*Username*/}

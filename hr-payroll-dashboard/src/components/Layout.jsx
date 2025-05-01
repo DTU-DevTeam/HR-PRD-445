@@ -2,15 +2,42 @@ import React, { useEffect, useState, useRef } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import '../App.css';
 import DigitalClock from './Clocks/DigitalClock';
+import BackToTop from './Back2Top/BackToTop';
 import './Clocks/DigitalClock.css';
 
-const Layout = ({ onLogout }) => {
+const Layout = ({ onLogout }) => {  
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const lastScrollTop = useRef(0);
   const location = useLocation();
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  // Hàm mở modal xác nhận đăng xuất
+  const openLogoutModal = () => {
+    setIsLogoutModalOpen(true);
+  };
+
+  // Hàm đóng modal
+  const closeLogoutModal = () => {
+    setIsLogoutModalOpen(false);
+  };
+
+  // Hàm xử lý đăng xuất
+  const handleLogout = () => {
+    setIsLogoutModalOpen(false);
+    onLogout(); // Điều hướng về trang Login
+  };
+
+  // Hàm toggle notification dropdown
+  const toggleNotifications = () => {
+    setIsNotificationOpen(!isNotificationOpen);
+  };
 
   useEffect(() => {
     setIsSidebarOpen(false);
@@ -43,25 +70,23 @@ const Layout = ({ onLogout }) => {
     };
   }, []);
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+  // Đóng dropdown khi click ra ngoài
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isNotificationOpen &&
+        !event.target.closest('.notification-dropdown') &&
+        !event.target.closest('.icon-btn.fa-bell')
+      ) {
+        setIsNotificationOpen(false);
+      }
+    };
 
-  // Hàm mở modal xác nhận đăng xuất
-  const openLogoutModal = () => {
-    setIsLogoutModalOpen(true);
-  };
-
-  // Hàm đóng modal
-  const closeLogoutModal = () => {
-    setIsLogoutModalOpen(false);
-  };
-
-  // Hàm xử lý đăng xuất
-  const handleLogout = () => {
-    setIsLogoutModalOpen(false);
-    onLogout(); // Điều hướng về trang Login
-  };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isNotificationOpen]);
 
   const navItems = [
     { name: 'Dashboard', icon: 'dashboardLogo.png', path: '/' },
@@ -139,9 +164,24 @@ const Layout = ({ onLogout }) => {
             <DigitalClock />
           </div>
           <div className="user-actions">
-            <button title='Notifications' className="icon-btn">
+            <button
+              title='Notifications'
+              className="icon-btn"
+              onClick={toggleNotifications}
+            >
               <i className="fas fa-bell"></i>
               <span className="badge">10+</span>
+              <div className={`notification-dropdown ${isNotificationOpen ? 'open' : ''}`}>
+                <div className="notification-header">
+                  <h3>Notifications</h3>
+                  <button>Mark all as read</button>
+                </div>
+                <ul className="notification-list">
+                  <li className="notification-item">
+                    {/* List Thông Báo */}
+                  </li>
+                </ul>
+              </div>
             </button>
             <button title='Settings' className="icon-btn">
               <i className="fas fa-cog"></i>
@@ -160,6 +200,9 @@ const Layout = ({ onLogout }) => {
         </header>
         <Outlet />
       </main>
+      
+      {/* Back to Top button */}
+      <BackToTop />
 
       {/* Modal xác nhận đăng xuất */}
       {isLogoutModalOpen && (

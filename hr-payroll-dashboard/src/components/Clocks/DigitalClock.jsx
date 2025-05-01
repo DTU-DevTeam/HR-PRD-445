@@ -21,16 +21,36 @@ const DigitalClock = () => {
     const iconSize = 70;
 
     if (hours >= 1 && hours <= 10) {
-      return <MeteoconsTimeMorningFill width={iconSize} height={iconSize} />;
-    } else if (hours >= 11 && hours <= 12) {
-      return <MeteoconsTimeAfternoonFill width={iconSize} height={iconSize} />;
-    } else if (hours >= 13 && hours <= 18) {
-      return <MeteoconsTimeLateAfternoonFill width={iconSize} height={iconSize} />;
-    } else if (hours >= 19 && hours <= 21) {
-      return <MeteoconsTimeEveningFill width={iconSize} height={iconSize} />;
-    } else {
-      return <MeteoconsTimeNightFill width={iconSize} height={iconSize} />;
-    }
+    return (
+      <span title="Good Morning!">
+        <MeteoconsTimeMorningFill width={iconSize} height={iconSize} />
+      </span>
+    );
+  } else if (hours >= 11 && hours <= 12) {
+    return (
+      <span title="Enjoy your lunch!">
+        <MeteoconsTimeAfternoonFill width={iconSize} height={iconSize} />
+      </span>
+    );
+  } else if (hours >= 13 && hours <= 18) {
+    return (
+      <span title="Good Afternoon!">
+        <MeteoconsTimeLateAfternoonFill width={iconSize} height={iconSize} />
+      </span>
+    );
+  } else if (hours >= 19 && hours <= 21) {
+    return (
+      <span title="Have a pleasant evening!">
+        <MeteoconsTimeEveningFill width={iconSize} height={iconSize} />
+      </span>
+    );
+  } else {
+    return (
+      <span title="Sweet dreams!">
+        <MeteoconsTimeNightFill width={iconSize} height={iconSize} />
+      </span>
+    );
+  }
   };
 
   const formatTime = (date) => {
