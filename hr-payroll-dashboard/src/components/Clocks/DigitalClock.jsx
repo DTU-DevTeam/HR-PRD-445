@@ -3,7 +3,7 @@ import './DigitalClock.css';
 import { MeteoconsTimeMorningFill } from '../Timers/Meteocon-morning';
 import { MeteoconsTimeAfternoonFill } from '../Timers/Meteocon-noon';
 import { MeteoconsTimeLateAfternoonFill } from '../Timers/Meteocon-afternoon';
-import { MeteoconsTimeEveningFill } from '../Timers/Meteocon-evening';
+import { MeteoconsTimeLateEveningFill } from '../Timers/Meteocon-evening';
 import { MeteoconsTimeNightFill } from '../Timers/Meteocon-night';
 
 const DigitalClock = () => {
@@ -41,7 +41,7 @@ const DigitalClock = () => {
   } else if (hours >= 19 && hours <= 21) {
     return (
       <span title="Have a pleasant evening!">
-        <MeteoconsTimeEveningFill width={iconSize} height={iconSize} />
+        <MeteoconsTimeLateEveningFill width={iconSize} height={iconSize} />
       </span>
     );
   } else {

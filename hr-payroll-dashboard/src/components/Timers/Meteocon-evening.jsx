@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function MeteoconsTimeEveningFill(props) {
+export function MeteoconsTimeLateEveningFill(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -11,66 +11,84 @@ export function MeteoconsTimeEveningFill(props) {
     >
       <defs>
         <linearGradient
-          id="meteoconsTimeEveningFill0"
-          x1={115.3}
-          x2={179.7}
-          y1={91.3}
-          y2={202.8}
+          id="meteoconsTimeLateEveningFill0"
+          x1={54}
+          x2={125.8}
+          y1={16.9}
+          y2={141.3}
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset={0} stopColor="#ffa94d" />
-          <stop offset={0.5} stopColor="#ffa94d" />
-          <stop offset={1} stopColor="#fd7e14" />
+          <stop offset={0} stopColor="#092960" />
+          <stop offset={0.5} stopColor="#092960" />
+          <stop offset={1} stopColor="#deeafb" />
         </linearGradient>
-        <clipPath id="meteoconsTimeEveningFill1">
-          <path fill="none" d="M0 12h512v282H0z" />
-        </clipPath>
-        <symbol id="meteoconsTimeEveningFill2" viewBox="0 0 295 294">
-          <ellipse
-            cx={147.5}
-            cy={147}
-            fill="url(#meteoconsTimeEveningFill0)"
-            rx={64.5}
-            ry={64.3}
-            stroke="#ff922b"
-            strokeMiterlimit={10}
-            strokeWidth={6}
-          />
+
+        <linearGradient
+          id="meteoconsTimeLateEveningFill1"
+          x1={38.8}
+          x2={133.4}
+          y1={20.8}
+          y2={184.6}
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset={0} stopColor="#86c3db" />
+          <stop offset={0.5} stopColor="#86c3db" />
+          <stop offset={1} stopColor="#5eafcf" />
+        </linearGradient>
+
+        <symbol id="meteoconsTimeLateEveningFill2" viewBox="0 0 192.5 192.5">
           <path
-            d="M147.5 47.2v-38m0 275.6v-38m70.8-170.4l27-26.8M49.7 244.5l27-27m0-141l-27-27m195.6 195l-27-27M47.3 147H9.2m276.6 0h-38.2"
-            fill="none"
-            stroke="#ffa94d"
+            fill="url(#meteoconsTimeLateEveningFill1)"
+            stroke="#72b9d5"
             strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={4.5}
+            d="M179.7 120.2a95 95 0 0 1-95.5-94.3a93.2 93.2 0 0 1 3.1-23.7A94.8 94.8 0 0 0 2.3 96a95 95 0 0 0 95.5 94.3c44.5 0 81.8-30 92.4-70.6a98.4 98.4 0 0 1-10.5.6Z"
+          />
+        </symbol>
+
+        <symbol id="meteoconsTimeLateEveningFill3" viewBox="0 0 189.5 120.5">
+          <path
+            fill="url(#meteoconsTimeLateEveningFill0)"
+            stroke="#fff"
             strokeMiterlimit={10}
-            strokeWidth={18.4}
-          >
-            <animateTransform
-              additive="sum"
-              attributeName="transform"
-              dur="6s"
-              repeatCount="indefinite"
-              type="rotate"
-              values="0 147.2 147.2; 45 147.2 147.2"
-            />
-          </path>
+            strokeWidth={4}
+            d="m157.3 58l-1.4.1a45.8 45.8 0 0 0 1.4-10.8a45.3 45.3 0 0 0-83.8-23.8a30.1 30.1 0 0 0-45.6 26a30.5 30.5 0 0 0 .4 4.9a32.3 32.3 0 0 0 6 64h123a30.2 30.2 0 0 0 0-60.3Z"
+          />
         </symbol>
       </defs>
-      <g clipPath="url(#meteoconsTimeEveningFill1)">
-        <use
-          width={295}
-          height={294}
-          href="#meteoconsTimeEveningFill2"
-          transform="translate(108.58 166.91)"
+
+      <use
+        width={192.5}
+        height={192.5}
+        href="#meteoconsTimeLateEveningFill2"
+        transform="translate(159.76 139.76)"
+      >
+        <animateTransform
+          additive="sum"
+          attributeName="transform"
+          dur="6s"
+          repeatCount="indefinite"
+          type="rotate"
+          values="-15 96.24 96.24; 9 96.24 96.24; -15 96.24 96.24"
         />
-      </g>
-      <path
-        d="M128 320h256"
-        fill="none"
-        stroke="#374151"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={18}
-      />
+      </use>
+
+      <use
+        width={189.5}
+        height={120.5}
+        href="#meteoconsTimeLateEveningFill3"
+        transform="translate(214.32 236.93)"
+      >
+        <animateTransform
+          additive="sum"
+          attributeName="transform"
+          dur="6s"
+          repeatCount="indefinite"
+          type="translate"
+          values="-6 0; 6 0; -6 0"
+        />
+      </use>
     </svg>
   );
 }
