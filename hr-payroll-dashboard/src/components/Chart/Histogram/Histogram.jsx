@@ -55,7 +55,7 @@ const Histogram = () => {
   };
 
   return (
-    <div className="histogram-container">
+    <div>
       <h2>Salary Statistics</h2>
       <select>
         <option>Last month</option>

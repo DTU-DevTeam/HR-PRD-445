@@ -4,6 +4,7 @@ import Histogram from '../components/Chart/Histogram/Histogram';
 import StackedBarChart from '../components/Chart/Stacked/StackedBarChart';
 import LinearProgressBar from '../components/Chart/Linear/LinearProgressBar';
 import './Dashboard.css'
+import '../App.css'
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -74,7 +75,7 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="div6">
-              <div className="stacked-bar-chart-container">
+              <div className="stacked-bar-stackedbar-container">
                 <StackedBarChart />
               </div>
             </div>
@@ -114,7 +115,8 @@ const Dashboard = () => {
               <div style={{ marginBottom: '20px' }}>
                 <h4>Develop by</h4>
                 <div style={{ textAlign: 'justify', display: 'inline-block' }}>
-                  <p>● iDTU DevTeam Vietnam, Software Engineering</p>
+                  <p>● CMU-CS 445 HIS TEAM, Software Engineering</p>
+                  <p>● Mentor: Huy, Nguyen Dang Quang - Email: huyndq@dtu.edu.vn</p>
                   <p>Duy Tan University Campus: 120 Hoang Minh Thao St, Hoa Khanh Nam Ward, Lien Chieu District, Danang City, Viet Nam</p>
                   <p style={{ margin: '10px 0' }}>Follow us:</p>
                 </div>
@@ -125,7 +127,7 @@ const Dashboard = () => {
                       alt="GitHub Icon"
                     />
                   </a>
-                  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.facebook.com/McreditVietNam" target="_blank" rel="noopener noreferrer">
                     <img
                       src={`${process.env.PUBLIC_URL}/icons/facebook.png`}
                       alt="Facebook Icon"
@@ -141,7 +143,7 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="copyright" style={{ marginBottom: '20px'}}>
-                <p>Copyright © 2025 iDTU DevTeam Vietnam. All Rights Reserved.</p>
+                <p>Copyright © 2025 CMU-CS 445 HIS Team. All Rights Reserved.</p>
             </div>
           </footer>
         </>

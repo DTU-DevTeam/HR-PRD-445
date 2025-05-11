@@ -16,6 +16,7 @@ const WARNING_TIMEOUT = 60 * 1000; // Cảnh báo 1 phút trước khi hết h�
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
   const [showWarning, setShowWarning] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -62,6 +63,7 @@ const App = () => {
       } else {
         handleLogout();
       }
+      setIsCheckingAuth(false);
   }, [handleLogout, location.pathname, navigate, setSessionTimeout]);
 
   const handleLogin = () => {
@@ -118,6 +120,9 @@ const App = () => {
       </div>
     </div>
   );
+
+  // Chờ xác minh login trước khi render
+  if (isCheckingAuth) return null;
 
   return (
     <>

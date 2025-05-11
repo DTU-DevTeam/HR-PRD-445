@@ -327,6 +327,7 @@
   width: 20px;
   height: auto;
 }
+
 .support {
   display: flex;
   align-items: center;
@@ -334,6 +335,20 @@
   font-size: 0.9rem;
   gap: 5px;
   transform: translateX(-200%);
+}
+
+.location-logo {
+  width: 20px;
+  height: auto;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  gap: 5px;
+  transform: translateX(-50%);
 }
 
 .error-popup {

@@ -14,6 +14,12 @@ const Layout = ({ onLogout }) => {
   const location = useLocation();
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
 
+  // const [notifications, setNotifications] = useState([]);
+  const [unreadNotifications, setUnreadNotifications] = useState(() => {
+  const saved = localStorage.getItem('unreadNotifications');
+  return saved !== null ? parseInt(saved) : 0;
+  });
+
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
@@ -34,10 +40,60 @@ const Layout = ({ onLogout }) => {
     onLogout(); // Điều hướng về trang Login
   };
 
-  // Hàm toggle notification dropdown
-  const toggleNotifications = () => {
-    setIsNotificationOpen(!isNotificationOpen);
+  // // Hàm tạo thông báo đăng nhập
+  // const addLoginNotification = (deviceType, ipAddress) => {
+  //   const now = new Date();
+  //   const loginTime = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+
+  //   // Hàm tạo fỏmat cho tên tài khoản trong thông báo
+  //   const formatUsername = (username) => {
+  //       if (!username) return 'unknown';
+  //       if (username.length <= 2) return username.charAt(0) + '*'.repeat(username.length - 1);
+  //       return username.substring(0, 2) + '*'.repeat(username.length - 2);
+  //   };
+
+  //   const newNotification = {
+  //       id: Date.now(),
+  //       title: "Đăng Nhập Từ IP Mới",
+  //       content: `Thân gửi,\n\nHệ thống đã phát hiện tài khoản của bạn được đăng nhập từ một địa chỉ IP lạ:\n\nTài khoản: ${formatUsername(user?.username)}\nThiết bị: ${deviceType}\nThời gian: ${loginTime}\nĐịa chỉ IP: ${ipAddress}`,
+  //       time: "Just now",
+  //       read: false
+  //   };
+
+  //   setNotifications(prev => [newNotification, ...prev]);
+  //   setUnreadNotifications(prev => prev + 1);
+  // };
+
+  // // Hàm lấy tên thiết bị mà người dùng đăng nhập
+  // const detectDeviceType = () => {
+  //   const userAgent = navigator.userAgent;
+  //   if (/Android/i.test(userAgent)) return "Android";
+  //   if (/iPhone|iPad|iPod/i.test(userAgent)) return "iOS";
+  //   if (/Windows/i.test(userAgent)) return "Windows PC";
+  //   if (/Mac/i.test(userAgent)) return "Mac";
+  //   if (/Linux/i.test(userAgent)) return "Linux PC";
+  //   return "Unknown Device";
+  // };
+  
+    // Hàm toggle notification dropdown
+    const toggleNotifications = (event) => {
+      event.stopPropagation();
+      if (!isNotificationOpen) {
+        setIsNotificationOpen(true);
+      }
+    };
+
+  // Hàm đánh dấu tất cả là đã đọc
+  const markAllAsRead = (event) => {
+    event.stopPropagation();
+    const newCount = 0;
+    setUnreadNotifications(newCount);
+    localStorage.setItem('unreadNotifications', newCount.toString());
   };
+
+  useEffect(() => {
+  localStorage.setItem('unreadNotifications', unreadNotifications.toString());
+  }, [unreadNotifications])
 
   useEffect(() => {
     setIsSidebarOpen(false);
@@ -70,14 +126,13 @@ const Layout = ({ onLogout }) => {
     };
   }, []);
 
-  // Đóng dropdown khi click ra ngoài
+  // Đống dropdown khi click ra ngoài
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        isNotificationOpen &&
-        !event.target.closest('.notification-dropdown') &&
-        !event.target.closest('.icon-btn.fa-bell')
-      ) {
+      const notificationBtn = event.target.closest('.icon-btn.fa-bell');
+      const notificationDropdown = event.target.closest('.notification-dropdown');
+      
+      if (!notificationBtn && !notificationDropdown) {
         setIsNotificationOpen(false);
       }
     };
@@ -155,26 +210,49 @@ const Layout = ({ onLogout }) => {
       </div>
 
       <main className="main-content">
+
+        {/* Ẩn/hiện headerbar */}
         <header className={`header-nav ${scrolled ? 'scrolled' : ''} ${isHidden ? 'hidden' : ''}`}>
           <div className="header-left">
+
+            {/* Searchbox */}
             <div className="search-bar">
               <i className="fas fa-search" style={{ cursor: 'pointer' }}></i>
               <input type="text" placeholder="Search..." />
             </div>
+
+            {/* ĐỒng hồ điện tử */}
             <DigitalClock />
           </div>
           <div className="user-actions">
+
+            {/* Nút thông báo */}
             <button
-              title='Notifications'
               className="icon-btn"
               onClick={toggleNotifications}
+              style={{ cursor: 'pointer' }}
             >
-              <i className="fas fa-bell"></i>
-              <span className="badge">10+</span>
+              <i className="fas fa-bell" style={{ cursor: 'pointer' }}></i>
+              {unreadNotifications > 0 && (
+                <span className="badge" style={{ cursor: 'pointer' }}>
+                  {unreadNotifications > 9 ? '9+' : unreadNotifications}
+                </span>
+              )}
               <div className={`notification-dropdown ${isNotificationOpen ? 'open' : ''}`}>
                 <div className="notification-header">
-                  <h3>Notifications</h3>
-                  <button>Mark all as read</button>
+                  <h3>NOTIFICATIONS</h3>
+                  <button 
+                    onClick={markAllAsRead}
+                    style={{ cursor: 'pointer' }}
+                    className="mark-read-btn"
+                  >
+                    <img
+                      src={`${process.env.PUBLIC_URL}/icons/unread.png`}
+                      alt="Mark all as read icon"
+                      className="mark-read-icon"
+                    />
+                    Mark all as read
+                  </button>
                 </div>
                 <ul className="notification-list">
                   <li className="notification-item">
@@ -183,9 +261,17 @@ const Layout = ({ onLogout }) => {
                 </ul>
               </div>
             </button>
-            <button title='Settings' className="icon-btn">
+
+            {/* Nút setting */}
+            <button
+              title='Settings'
+              className="icon-btn"
+              onClick={"setting"}
+            >
               <i className="fas fa-cog"></i>
             </button>
+
+            {/* Profile */}
             <div className="user-profile">
               <img
                 src="https://storage.googleapis.com/a1aa/image/MyBa6Q8FIaIFIPMmOS1YBl9vke6UG83YIat7SO3Q_N4.jpg"

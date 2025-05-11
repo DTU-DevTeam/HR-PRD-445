@@ -8,7 +8,7 @@ const LinearProgressBar = () => {
   ];
 
   return (
-    <div className="chart-container">
+    <div className="progress-container">
       <h2>Employee Structure</h2>
       <div className="progress-wrapper">
         <div className="total-circle">

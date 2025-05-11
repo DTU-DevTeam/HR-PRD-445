@@ -158,8 +158,16 @@ const Login = ({ onLogin }) => {
                                 alt="Support Logo"
                                 className="support-logo"
                             />
-                                Support: +84 XXXX 285 09
+                            Support: +84 XXXX 285 09
                         </p>
+                        {/* <p className="location">
+                            <img
+                                src={`${process.env.PUBLIC_URL}/icons/location.png`}
+                                alt="Location Logo"
+                                className="location-logo"
+                            />
+                            259 Tran Cao Van, Xuan Ha, Thanh Khe, Da Nang
+                        </p> */}
                         <a
                             href="https://github.com/DTU-DevTeam/HR-PRD-445?tab=readme-ov-file#contact"
                             target="_blank"
