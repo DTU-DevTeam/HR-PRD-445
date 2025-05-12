@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function MeteoconsTimeAfternoonFill(props) {
+export function MeteoconsTimeLateMorningFill(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -11,7 +11,7 @@ export function MeteoconsTimeAfternoonFill(props) {
     >
       <defs>
         <linearGradient
-          id="meteoconsTimeAfternoonFill0"
+          id="meteoconsTimeLateMorningFill0"
           x1={115}
           x2={179.4}
           y1={91.4}
@@ -22,23 +22,28 @@ export function MeteoconsTimeAfternoonFill(props) {
           <stop offset={0.5} stopColor="#fbbf24" />
           <stop offset={1} stopColor="#f59e0b" />
         </linearGradient>
-        <symbol id="meteoconsTimeAfternoonFill1" viewBox="0 0 294.4 294.4">
+
+        <clipPath id="meteoconsTimeLateMorningFill1">
+          <path fill="none" d="M0 12h512v282H0z" />
+        </clipPath>
+
+        <symbol id="meteoconsTimeLateMorningFill2" viewBox="0 0 294.4 294.4">
           <circle
             cx={147.2}
             cy={147.2}
             r={64.4}
-            fill="url(#meteoconsTimeAfternoonFill0)"
+            fill="url(#meteoconsTimeLateMorningFill0)"
             stroke="#f8af18"
             strokeMiterlimit={10}
             strokeWidth={4.6}
           />
           <path
-            d="M147.2 47.3V9.2m0 276v-38m70.7-170.7l26.9-26.9M49.6 244.8l27-27m0-141.3l-27-26.9m195.2 195.2l-27-27M47.4 147.3H9.2m276 0h-38"
             fill="none"
             stroke="#fbbf24"
             strokeLinecap="round"
             strokeMiterlimit={10}
             strokeWidth={18.4}
+            d="M147.2 47.3V9.2m0 276v-38m70.7-170.7l26.9-26.9M49.6 244.8l27-27m0-141.3l-27-26.9m195.2 195.2l-27-27M47.4 147.3H9.2m276 0h-38"
           >
             <animateTransform
               additive="sum"
@@ -51,11 +56,23 @@ export function MeteoconsTimeAfternoonFill(props) {
           </path>
         </symbol>
       </defs>
-      <use
-        width={294.4}
-        height={294.4}
-        href="#meteoconsTimeAfternoonFill1"
-        transform="translate(108.68 70.93)"
+
+      <g clipPath="url(#meteoconsTimeLateMorningFill1)">
+        <use
+          width={294.4}
+          height={294.4}
+          href="#meteoconsTimeLateMorningFill2"
+          transform="translate(108.73 108.93)"
+        />
+      </g>
+
+      <path
+        fill="none"
+        stroke="#374151"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={18}
+        d="M128 320h256"
       />
     </svg>
   );

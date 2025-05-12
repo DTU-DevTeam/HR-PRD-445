@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './DigitalClock.css';
 import { MeteoconsTimeMorningFill } from '../Timers/Meteocon-morning';
-import { MeteoconsTimeAfternoonFill } from '../Timers/Meteocon-noon';
+import { MeteoconsTimeLateMorningFill } from '../Timers/Meteocon-noon';
 import { MeteoconsTimeLateAfternoonFill } from '../Timers/Meteocon-afternoon';
 import { MeteoconsTimeLateEveningFill } from '../Timers/Meteocon-evening';
 import { MeteoconsTimeNightFill } from '../Timers/Meteocon-night';
@@ -29,7 +29,7 @@ const DigitalClock = () => {
   } else if (hours >= 11 && hours <= 12) {
     return (
       <span title="Enjoy your lunch!">
-        <MeteoconsTimeAfternoonFill width={iconSize} height={iconSize} />
+        <MeteoconsTimeLateMorningFill width={iconSize} height={iconSize} />
       </span>
     );
   } else if (hours >= 13 && hours <= 18) {
