@@ -28,15 +28,15 @@ const PayrollAttendance = () => {
       <h1 className="dashboard-title">Payroll & Attendance</h1>
       {isLoading &&
         <div>
-          <div className="loader3"></div>
-          <div className="loader3-title">
+          <div className="loader4"></div>
+          <div className="loader4-title">
             Please wait while we load the content...
           </div>
         </div>
       }
       {error && (
         <div className="error-message">
-          Error: {error}
+          Error: {'Failed to fetch Payroll and Attendance data'}
         </div>
       )}
       {!isLoading && !error && (

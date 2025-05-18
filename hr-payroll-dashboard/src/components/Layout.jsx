@@ -146,6 +146,7 @@ const Layout = ({ onLogout }) => {
   const navItems = [
     { name: 'Dashboard', icon: 'dashboardLogo.png', path: '/' },
     { name: 'Employees', icon: 'employeeLogo.png', path: '/employees' },
+    { name: 'Organization', icon: 'organizationLogo.png', path: '/organization' },
     { name: 'Payroll & Attendance', icon: 'payrollLogo.png', path: '/payroll-attendance' },
     { name: 'Reports & Analytics', icon: 'reportLogo.png', path: '/reports-analytics' },
     { name: 'Alerts & Notifications', icon: 'alertLogo.png', path: '/alerts-notifications' },

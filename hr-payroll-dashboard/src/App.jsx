@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import Employees from './pages/Employees';
+import Organization from './pages/Organization';
 import PayrollAttendance from './pages/PayrollAttendance';
 import ReportsAnalytics from './pages/ReportsAnalytics';
 import AlertsNotifications from './pages/AlertsNotifications';
@@ -135,8 +136,18 @@ const App = () => {
 
         {/* Các route được bảo vệ */}
         <Route element={<Layout onLogout={handleLogout} />}>
-          <Route path="/" element={isLoggedIn ? <Dashboard /> : <Login onLogin={handleLogin} />} />
-          <Route path="/employees" element={isLoggedIn ? <Employees /> : <Login onLogin={handleLogin} />} />
+          <Route 
+            path="/"
+            element={isLoggedIn ? <Dashboard /> : <Login onLogin={handleLogin} />}
+          />
+          <Route
+            path="/employees"
+            element={isLoggedIn ? <Employees /> : <Login onLogin={handleLogin} />}
+          />
+          <Route
+            path="/organization"
+            element={isLoggedIn ? <Organization /> : <Login onLogin={handleLogin} />}
+          />
           <Route
             path="/payroll-attendance"
             element={isLoggedIn ? <PayrollAttendance /> : <Login onLogin={handleLogin} />}

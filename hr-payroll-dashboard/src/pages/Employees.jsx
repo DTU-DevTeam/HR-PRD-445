@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './Employees.css';
 
 const Employees = () => {
@@ -11,7 +11,7 @@ const Employees = () => {
       try {
         const response = await fetch('https://localhost:7151/hr/employees');
         if (!response.ok) {
-          throw new Error("Failed to fetch Employees data");
+          throw new Error('Failed to fetch Employees data');
         }
         const data = await response.json();
         setEmployees(data);
@@ -38,7 +38,7 @@ const Employees = () => {
       }
       {error && (
         <div className="error-message">
-          Error: {error}
+          Error: {'Failed to fetch Employees data'}
         </div>
       )}
       {!isLoading && !error && (
