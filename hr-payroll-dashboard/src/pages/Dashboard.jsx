@@ -1,13 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import CircularProgressBar from '../components/Chart/Circular/CircularProgressBar';
-import Histogram from '../components/Chart/Histogram/Histogram';
+import Area from '../components/Chart/Area/Area';
 import StackedBarChart from '../components/Chart/Stacked/StackedBarChart';
 import LinearProgressBar from '../components/Chart/Linear/LinearProgressBar';
+import VennDiagram from '../components/Chart/Venn/VennDiagram';
+import Map from '../components/Map/Map';
 import './Dashboard.css'
 import '../App.css'
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const boardRef = useRef(null);
+
+  const scrollLeft = () => {
+    boardRef.current.scrollBy({ left: 250, behavior: 'smooth' });
+  };
+
+  const scrollRight = () => {
+    boardRef.current.scrollBy({ left: 220, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -15,6 +26,13 @@ const Dashboard = () => {
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
+
+  const boardMembers = [
+    { name: "Thien, Nguyen Ngoc", role: "Leader/Back-end Dev", studentId: "28219448044", image: `${process.env.PUBLIC_URL}/icons/ngocthien.jpg` },
+    { name: "Thanh, Tran Nguyen Duy", role: "Front-end Dev", studentId: "28214634771", image: `${process.env.PUBLIC_URL}/icons/duythanh.jpg` },
+    { name: "Thuyen, Tran An", role: "Back-end Dev", studentId: "28211351997", image: `${process.env.PUBLIC_URL}/icons/anthuyen.jpg` },
+    { name: "Tuan, Le Minh", role: "Front-end Dev", studentId: "28212223967", image: `${process.env.PUBLIC_URL}/icons/minhtuan.jpg`},
+  ];
 
   return (
     <div className="dashboard-content">
@@ -33,7 +51,7 @@ const Dashboard = () => {
               <div className="progress-circles-container">
                 <CircularProgressBar
                   label="New Employee"
-                  value="$12,345"
+                  value="345"
                   percentage={40}
                   colors={['#483D8B', '#E6E6FA']}
                 />
@@ -43,7 +61,7 @@ const Dashboard = () => {
               <div className="progress-circles-container">
                 <CircularProgressBar
                   label="Number of Leave"
-                  value="1,234"
+                  value="127"
                   percentage={20}
                   colors={['#FF0000', '#fae6e6']}
                 />
@@ -53,8 +71,8 @@ const Dashboard = () => {
               <div className="progress-circles-container">
                 <CircularProgressBar
                   label="Total Employee"
-                  value="3.2%"
-                  percentage={20}
+                  value="1,345"
+                  percentage={67}
                   colors={['#228B22', '#e7fae6']}
                 />
               </div>
@@ -63,25 +81,79 @@ const Dashboard = () => {
               <div className="progress-circles-container">
                 <CircularProgressBar
                   label="Average Salary"
-                  value="3.2%"
-                  percentage={20}
+                  value="$1,200"
+                  percentage={90}
                   colors={['#FFD700', '#fafae6']}
                 />
               </div>
             </div>
             <div className="div5">
-              <div className="histogram-container">
-                <Histogram />
-              </div>
+                <Area />
             </div>
             <div className="div6">
-              <div className="stacked-bar-stackedbar-container">
-                <StackedBarChart />
+              <div className="venn-diagram-container">
+                <VennDiagram />
               </div>
             </div>
             <div className="div7">
               <div className="linear-progress-bar-container">
+                <StackedBarChart />
+              </div>
+            </div>
+            <div className="div8">
+              <div className="stacked-bar-stackedbar-container">
                 <LinearProgressBar />
+              </div>
+            </div>
+            <div className="div9">
+              <div className="">
+                <Map />
+              </div>
+            </div>
+            <div className="div10">
+              <h2 className="board-members-title">Board Members</h2>
+              <p className="board-members-subtitle">
+                We are on a mission to simplify and streamline human resource and payroll management through a secure, intuitive, and scalable platform.
+              </p>
+              <div className="board-members-slider">
+                <button
+                  src={`${process.env.PUBLIC_URL}/icons/left-bold.png`}
+                  className="slide-btn left"
+                  onClick={scrollLeft}
+                  >
+                    <img
+                      src={`${process.env.PUBLIC_URL}/icons/left-bold.png`}
+                      alt="Slide Left"
+                      className="slide-arrow"
+                    />
+                </button>
+                <div className="board-members-container" ref={boardRef}>
+                  {boardMembers.map((member, index) => (
+                    <div key={index} className="board-member-card">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="board-member-image"
+                      />
+                      <div className="board-member-info">
+                        <h3>{member.name}</h3>
+                        <p>{member.role}</p>
+                        <p>Student ID: {member.studentId}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <button
+                  src={`${process.env.PUBLIC_URL}/icons/right-bold.png`}
+                  className="slide-btn right"
+                  onClick={scrollRight}
+                  >
+                    <img
+                      src={`${process.env.PUBLIC_URL}/icons/right-bold.png`}
+                      alt="Slide Right"
+                      className="slide-arrow"
+                    />
+                </button>
               </div>
             </div>
           </div>

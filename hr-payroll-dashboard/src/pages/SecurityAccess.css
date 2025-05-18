@@ -1,0 +1,56 @@
+.loader7 {
+  width: 300px;
+  height: 25px;
+  border-radius: 40px;
+  color: rgb(255, 255, 255);
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  border: 2px solid;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+.loader7::before {
+  content: "";
+  position: absolute;
+  margin: 2px;
+  width: 14px;
+  top: 0;
+  bottom: 0;
+  left: -20px;
+  border-radius: inherit;
+  background: currentColor;
+  box-shadow: -10px 0 12px 3px currentColor;
+  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 95%, -30px 50%);
+  animation: l14 1s infinite linear;
+}
+
+.loader7-title {
+  position: relative;
+  font-size: 0.75rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(0, 65, 106);
+  text-align: center;
+  margin: 20px 0;
+  top: -10px;
+}
+
+.error-message {
+  position: relative;
+  font-size: 1.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: red;
+  text-align: center;
+  margin: 20px 0;
+  top: 200px;
+}
+
+@keyframes l14 {
+  100% {
+    left: calc(100% + 20px);
+  }
+}

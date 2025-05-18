@@ -1,21 +1,23 @@
-.histogram-container {
-  background-color: transparent;
-  border-radius: 10px;
-  padding: 20px;
-  max-width: 600px;
-  margin: 20px auto;
+.area-container {
   position: relative;
-  top: 100px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 945px;
+  margin: 20px auto;
+  top: -30px;
+  right: 1px;
 }
 
-.histogram-container h2 {
+.area-container h2 {
   font-size: 1.5rem;
   color: #333;
   margin-bottom: 20px;
   font-weight: 600;
 }
 
-.histogram-container select {
+.area-container select {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -38,16 +40,16 @@ canvas {
 }
 
 @media (max-width: 768px) {
-  .histogram-container {
+  .area-container {
     padding: 15px;
     max-width: 100%;
   }
 
-  .histogram-container h2 {
+  .area-container h2 {
     font-size: 1.2rem;
   }
 
-  .histogram-container select {
+  .area-container select {
     font-size: 0.8rem;
     padding: 4px 8px;
   }
