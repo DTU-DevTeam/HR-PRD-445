@@ -1,0 +1,122 @@
+.loader5 {
+  width: 300px;
+  height: 25px;
+  border-radius: 40px;
+  color: rgb(255, 255, 255);
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  border: 2px solid;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+.loader5::before {
+  content: "";
+  position: absolute;
+  margin: 2px;
+  width: 14px;
+  top: 0;
+  bottom: 0;
+  left: -20px;
+  border-radius: inherit;
+  background: currentColor;
+  box-shadow: -10px 0 12px 3px currentColor;
+  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 95%, -30px 50%);
+  animation: l14 1s infinite linear;
+}
+
+.loader5-title {
+  position: relative;
+  font-size: 0.75rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(0, 65, 106);
+  text-align: center;
+  margin: 20px 0;
+  top: -10px;
+}
+
+.error-message {
+  position: relative;
+  font-size: 1.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: red;
+  text-align: center;
+  margin: 20px 0;
+  top: 200px;
+}
+
+.download-button {
+  position: relative;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-image: linear-gradient(#3edfdf, #520ea4);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 270px;
+  margin: 10px 0;
+  margin-left: auto;
+  top: -90px;
+  transition: background-image 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+.download-button:hover {
+  background-image: linear-gradient(#249f9f, #330867);
+}
+
+.download-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Grid Layout*/
+.parent-Report {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  gap: 15px;
+}
+
+.totalSalary-div {
+  /* total salary paid to employees */
+  grid-column: span 3 / span 3;
+  grid-row: span 2 / span 2;
+}
+
+.active-div {
+  /* active employees */
+  grid-column: span 3 / span 3;
+  grid-row: span 2 / span 2;
+  grid-column-start: 4;
+}
+
+.chart-div {
+  /* area chart for total salary paid to employees and active employees*/
+  grid-column: span 6 / span 6;
+  grid-row: span 5 / span 5;
+  grid-row-start: 3;
+}
+
+.list-div {
+  /* list of employees with salary and active status */
+  grid-column: span 6 / span 6;
+  grid-row: span 8 / span 8;
+  grid-column-start: 1;
+  grid-row-start: 9;
+}
+
+@keyframes l14 {
+  100% {
+    left: calc(100% + 20px);
+  }
+}

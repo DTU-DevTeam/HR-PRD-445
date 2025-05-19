@@ -1,41 +1,105 @@
-﻿@using ManagementDashboard.Core.Dto;
-@using ManagementDashboard.Core.Domain.Entities;
+﻿@using Management.Core.Dto.Requests
 @model AddEmployee_Request;
 
 @{
     List<Department_SqlServer> departments = ViewBag.Departments;
+    List<Position_SqlServer> positions = ViewBag.Positions;
 }
 
-<p1>Them Nv</p1>
-<form asp-controller="HR" asp-action="AddEmployee" method="post">
-    <div class="form-group">
 
-        <label asp-for="ApplicantID" class="control-label">Application ID: </label>
-        <input asp-for="ApplicantID" type="text" class="form-control" />
+<div class="card shadow p-4">
+    <form asp-controller="HR" asp-action="AddEmployee" method="post">
+       
 
-        <br />
+        <div class="row mb-3">
+            
+            <div class="col-md-6">
+                <label asp-for="FullName" class="form-label">Full Name</label>
+                <input asp-for="FullName" type="text" class="form-control" required/>
+            </div>
+        </div>
 
-        <label asp-for="DepartmentID" class="control-label">Department Name: </label>
-        <select asp-for="DepartmentID" class="form-control">
-            @foreach (var department in departments)
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label asp-for="DateOfBirth" class="form-label">Date Of Birth</label>
+                <input asp-for="DateOfBirth" type="date" class="form-control" required/>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Gender" class="form-label">Gender</label>
+                <select asp-for="Gender" class="form-select">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label asp-for="PhoneNumber" class="form-label">Phone Number</label>
+                <input asp-for="PhoneNumber" type="text" class="form-control" required/>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" type="email" class="form-control"  required/>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label asp-for="HireDate" class="form-label">Hire Date</label>
+                <input asp-for="HireDate" type="date" class="form-control"  required/>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="DepartmentID" class="form-label">Department ID</label>
+                <select asp-for="DepartmentID"  class="form-control"  >
+                      @foreach(var department in departments)
+                      {
+                          <option value="@department.DepartmentId">@department.DepartmentName</option>
+                      }
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <label asp-for="PositionID" class="form-label">Position ID</label>
+                <select asp-for="PositionID" class="form-control">
+                    @foreach (var position in positions)
+                    {
+                        <option value="@position.PositionID">@position.PositionName</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div>
+            @if (ViewBag.Errors != null)
             {
-                <option value="@department.DepartmentId">@department.DepartmentName</option>
+                <div style="color:red">
+                    <ul>
+                        <li class="ml">@ViewBag.Errors</li>
+                    </ul>
+                </div>
             }
+            @if (ViewBag.Success != null)
+            {
+                <div style="color:green">
+                    <ul>
 
-        </select>
+                        <li class="ml">@ViewBag.Success</li>
+                        
+                    </ul>
+                </div>
+            }
+        </div>
 
-        <br />
+        <div class="text-end">
+            <button type="submit" class="btn btn-primary">Add Employee</button>
+        </div>
+    </form>
+</div>
 
-        <label asp-for="HireDate" class="control-label">Hired Date: </label>
-        <input asp-for="HireDate" type="date" class="form-control" />
-
-        <br />
-
-        <label asp-for="Salary" class="control-label">Salary: </label>
-        <input asp-for="Salary" type="number" class="form-control" />
-
-        <br />
-
-        <button type="submit" class="btn btn-primary mt-3">Thêm nhân viên</button>
-    </div>
-</form>

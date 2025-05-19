@@ -67,5 +67,39 @@ namespace ManagementDashboard.Core.Services.PayRollServices
 
             return sortedSalaries;
         }
+
+        public List<Attendance_MySql> GetSortedAttendances(List<Attendance_MySql> attendances, string sortBy, SortOrderOptions sortOrder)
+        {
+            if (string.IsNullOrEmpty(sortBy))
+                return attendances;
+
+            List<Attendance_MySql> sortedAttendances = (sortBy, sortOrder) switch
+            {
+                (nameof(Attendance_MySql.EmployeeID), SortOrderOptions.Ascending) => attendances.OrderBy(temp => temp.EmployeeID).ToList(),
+                (nameof(Attendance_MySql.EmployeeID), SortOrderOptions.Descending) => attendances.OrderByDescending(temp => temp.EmployeeID).ToList(),
+
+                (nameof(Attendance_MySql.AttendanceID), SortOrderOptions.Ascending) => attendances.OrderBy(temp => temp.AttendanceID).ToList(),
+                (nameof(Attendance_MySql.AttendanceID), SortOrderOptions.Descending) => attendances.OrderByDescending(temp => temp.AttendanceID).ToList(),
+
+                (nameof(Attendance_MySql.WorkDays), SortOrderOptions.Ascending) => attendances.OrderBy(temp => temp.WorkDays).ToList(),
+                (nameof(Attendance_MySql.WorkDays), SortOrderOptions.Descending) => attendances.OrderByDescending(temp => temp.WorkDays).ToList(),
+
+                (nameof(Attendance_MySql.AbsentDays), SortOrderOptions.Ascending) => attendances.OrderBy(temp => temp.AbsentDays).ToList(),
+                (nameof(Attendance_MySql.AbsentDays), SortOrderOptions.Descending) => attendances.OrderByDescending(temp => temp.AbsentDays).ToList(),
+
+                (nameof(Attendance_MySql.LeaveDays), SortOrderOptions.Ascending) => attendances.OrderBy(temp => temp.LeaveDays).ToList(),
+                (nameof(Attendance_MySql.LeaveDays), SortOrderOptions.Descending) => attendances.OrderByDescending(temp => temp.LeaveDays).ToList(),
+
+                (nameof(Attendance_MySql.AttendanceMonth), SortOrderOptions.Ascending) => attendances.OrderBy(temp => temp.AttendanceMonth).ToList(),
+                (nameof(Attendance_MySql.AttendanceMonth), SortOrderOptions.Descending) => attendances.OrderByDescending(temp => temp.AttendanceMonth).ToList(),
+
+                (nameof(Attendance_MySql.CreatedAt), SortOrderOptions.Ascending) => attendances.OrderBy(temp => temp.CreatedAt).ToList(),
+                (nameof(Attendance_MySql.CreatedAt), SortOrderOptions.Descending) => attendances.OrderByDescending(temp => temp.CreatedAt).ToList(),
+
+                _ => attendances
+            };
+
+            return sortedAttendances;
+        }
     }
 }

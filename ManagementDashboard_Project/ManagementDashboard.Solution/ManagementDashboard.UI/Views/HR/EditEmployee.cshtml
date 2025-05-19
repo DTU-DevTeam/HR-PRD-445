@@ -1,49 +1,124 @@
-﻿@using ManagementDashboard.Core.Dto;
+﻿
+@using Management.Core.Dto.Responses
 @using ManagementDashboard.Core.Domain.Entities;
+@using Management.Core.Dto.Requests;
 @model EditEmployee_Request;
 
 @{
+    EditEmployee_Response employee = ViewBag.Employee;
     List<Department_SqlServer> departments = ViewBag.Departments;
-    Employee_SqlServer employee = ViewBag.Employees;
+    List<Position_SqlServer> positions = ViewBag.Positions;
 }
 
-<p1>Them Nv</p1>
-<form asp-controller="HR" asp-action="EditEmployee" method="post">
-    <div class="form-group">
+<h3 class="mb-4"><a href="~/hr/employees">Employees</a> > Edit Employee</h3>
 
-        <label asp-for="EmployeeID" class="control-label">Employee ID: @employee.EmployeeID</label>
-        <input asp-for="EmployeeID" type="hidden" class="form-control" value="@employee.EmployeeID" />
+<div class="card shadow p-4">
+    <form asp-controller="HR" asp-action="EditEmployee" method="post">
+        <input asp-for="EmployeeID" type="hidden" value="@employee.EmployeeID" />
 
-        <br />
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Employee ID</label>
+                <input type="text" class="form-control" value="@employee.EmployeeID" disabled />
+            </div>
 
-        <label asp-for="ApplicantID" class="control-label">Application ID:</label>
-        <input asp-for="ApplicantID" type="text" class="form-control" value=" " />
+            <div class="col-md-6">
+                <label asp-for="FullName" class="form-label">Full Name</label>
+                <input asp-for="FullName" type="text" class="form-control" value="@employee.FullName" required/>
+            </div>
+        </div>
 
-        <br />
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label asp-for="DateOfBirth" class="form-label">Date Of Birth</label>
+                <input asp-for="DateOfBirth" type="date" class="form-control" value="@employee.DateOfBirth?.ToString("yyyy-MM-dd")" required/>
+            </div>
 
-        <label asp-for="DepartmentID" class="control-label">Department Name: </label>
-        <select asp-for="DepartmentID" class="form-control" oninvalid="">
-            @foreach (var department in departments)
-            {
-                <option value="@department.DepartmentId" selected="@(department.DepartmentId == employee.DepartmentID)">
-                    @department.DepartmentName
-                </option>
-            }
+            <div class="col-md-6">
+                <label asp-for="Gender" class="form-label">Gender</label>
+                <select asp-for="Gender" class="form-select">
+                    <option selected>@employee.Gender</option>
+                    @if(employee.Gender.Equals("Male"))
+                    {
+                        <option>FeMale</option>
+                        <option>Other</option>
+                    }
+                    @if(employee.Gender.Equals("FeMale"))
+                    {
+                        <option>Male</option>
+                        <option>Other</option>
+                    }
+                    @if (employee.Gender.Equals("Other"))
+                    {
+                        <option>Male</option>
+                        <option>Female</option>
+                    }
+                </select>
+            </div>
+        </div>
 
-        </select>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label asp-for="PhoneNumber" class="form-label">Phone Number</label>
+                <input asp-for="PhoneNumber" type="text" class="form-control" value="@employee.PhoneNumber" required/>
+            </div>
 
-        <br />
+            <div class="col-md-6">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" type="email" class="form-control" value="@employee.Email" required/>
+            </div>
+        </div>
 
-        <label asp-for="HireDate" class="control-label">Hired Date: </label>
-        <input asp-for="HireDate" type="date" class="form-control" value="@employee.HireDate.ToString("yyyy-MM-dd")" />
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label asp-for="HireDate" class="form-label">Hire Date</label>
+                <input asp-for="HireDate" type="date" class="form-control" value="@employee.HireDate?.ToString("yyyy-MM-dd")" required/>
+            </div>
 
-        <br />
+            <div class="col-md-6">
+                <label asp-for="DepartmentID" class="form-label">Department ID</label>
+                <select asp-for="DepartmentID" class="form-select">
+                    @foreach (var department in departments)
+                    {
+                        if (department.DepartmentId == employee.DepartmentID)
+                        {
+                            <option value="@department.DepartmentId" selected>@department.DepartmentName</option>
+                        }
+                        else
+                        {
+                            <option value="@department.DepartmentId">@department.DepartmentName</option>
+                        }
 
-        <label asp-for="Salary" class="control-label">Salary: </label>
-        <input asp-for="Salary" type="number" class="form-control" value="" />
+                    }
+                    )
+                </select>
+            </div>
+        </div>
 
-        <br />
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <label asp-for="PositionID" class="form-label">Position ID</label>
+                <select asp-for="PositionID" class="form-select">
+                    @foreach (var position in positions)
+                    {
+                        if (position.PositionID == employee.PositionID)
+                        {
+                            <option value="@position.PositionID" selected>@position.PositionName</option>
+                        }
+                        else
+                        {
+                            <option value="@position.PositionID">@position.PositionName</option>
+                        }
+                    }
+                </select>
+            </div>
 
-        <button type="submit" class="btn btn-primary mt-3">Chỉnh sửa nhân viên</button>
-    </div>
-</form>
+          
+        </div>
+
+        <div class="text-end">
+            <button type="submit" class="btn btn-primary">Update Employee</button>
+        </div>
+    </form>
+</div>
+

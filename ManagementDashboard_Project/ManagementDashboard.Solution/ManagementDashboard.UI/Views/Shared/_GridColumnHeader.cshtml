@@ -18,6 +18,28 @@
             <i class="fa-solid fa-sort-up"></i>
         </th>
     }
+    @if (currentUrl.Contains("payroll/attendance"))
+    {
+        <th>
+            <a href="~/payroll/attendance?searchBy=@(ViewBag.CurrentSearchBy)&searchString=@(ViewBag.CurrentSearchString)&sortBy=@(ViewBag.ColumnName)&sortOrderOptions=@(nameof(SortOrderOptions.Descending))">@(ViewBag.DisplayName)</a>
+            <i class="fa-solid fa-sort-up"></i>
+        </th>
+    
+    }
+    @if (currentUrl.Contains("hr/department"))
+    {
+        <th>
+            <a href="#">@(ViewBag.DisplayName)</a>
+            <i class="fa-solid fa-sort-up"></i>
+        </th>
+    }
+    @if (currentUrl.Contains("hr/positions"))
+    {
+        <th>
+            <a href="#">@(ViewBag.DisplayName)</a>
+            <i class="fa-solid fa-sort-up"></i>
+        </th>
+    }
 }
 else if (ViewBag.CurrentSortBy == ViewBag.ColumnName && ViewBag.CurrentSortOrder == SortOrderOptions.Descending.ToString())
 {
@@ -31,7 +53,28 @@ else if (ViewBag.CurrentSortBy == ViewBag.ColumnName && ViewBag.CurrentSortOrder
     @if (currentUrl.Contains("payroll/salaries"))
     {
         <th>
-            <a href="~/payroll/salaries?searchBy=@(ViewBag.CurrentSearchBy)&searchString=@(ViewBag.CurrentSearchString)&sortBy=@(ViewBag.ColumnName)&sortOrderOptions=@(nameof(SortOrderOptions.Ascending))">@(ViewBag.DisplayName)</a>
+            <a href="#">@(ViewBag.DisplayName)</a>
+            <i class="fa-solid fa-sort-down"></i>
+        </th>
+    }
+    @if (currentUrl.Contains("payroll/attendance"))
+    {
+        <th>
+            <a href="~/payroll/attendance?searchBy=@(ViewBag.CurrentSearchBy)&searchString=@(ViewBag.CurrentSearchString)&sortBy=@(ViewBag.ColumnName)&sortOrderOptions=@(nameof(SortOrderOptions.Ascending))">@(ViewBag.DisplayName)</a>
+            <i class="fa-solid fa-sort-down"></i>
+        </th>
+    }
+    @if (currentUrl.Contains("hr/department"))
+    {
+        <th>
+            <a href="#">@(ViewBag.DisplayName)</a>
+            <i class="fa-solid fa-sort-down"></i>
+        </th>
+    }
+    @if (currentUrl.Contains("hr/positions"))
+    {
+        <th>
+            <a href="#">@(ViewBag.DisplayName)</a>
             <i class="fa-solid fa-sort-down"></i>
         </th>
     }
@@ -48,6 +91,24 @@ else
     {
         <th>
             <a href="~/payroll/salaries?searchBy=@(ViewBag.CurrentSearchBy)&searchString=@(ViewBag.CurrentSearchString)&sortBy=@(ViewBag.ColumnName)&sortOrderOptions=@(nameof(SortOrderOptions.Ascending))">@ViewBag.DisplayName</a>
+        </th>
+    }
+    @if (currentUrl.Contains("payroll/attendance"))
+    {
+        <th>
+            <a href="~/payroll/attendance?searchBy=@(ViewBag.CurrentSearchBy)&searchString=@(ViewBag.CurrentSearchString)&sortBy=@(ViewBag.ColumnName)&sortOrderOptions=@(nameof(SortOrderOptions.Ascending))">@ViewBag.DisplayName</a>
+        </th>
+    }
+    @if (currentUrl.Contains("hr/department"))
+    {
+        <th>
+            <a href="#">@ViewBag.DisplayName</a>
+        </th>
+    }
+    @if (currentUrl.Contains("hr/positions"))
+    {
+        <th>
+            <a href="#">@ViewBag.DisplayName</a>
         </th>
     }
    

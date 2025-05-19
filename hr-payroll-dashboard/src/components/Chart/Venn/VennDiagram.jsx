@@ -9,7 +9,7 @@ const VennDiagram = () => {
   ];
 
   return ( 
-    <div className="chart-container">
+    <div className="venn-container">
       <h2>Income Analysis</h2>
       <div className="venn-diagram">
         {data.map((item, index) => (

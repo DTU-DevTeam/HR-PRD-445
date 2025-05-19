@@ -1,0 +1,162 @@
+﻿@model List<Employee_SqlServer>
+
+@{
+    List<Employee_SqlServer>? employees = ViewBag.Employees;
+}
+
+<form asp-controller="hr" asp-action="ImportExcelIntoDatabase" method="post" enctype="multipart/form-data">
+
+    <div class="table-responsive">
+        <table id="employeeTable" class="table table-sm table-striped table-hover table-bordered align-middle text-center">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>Full Name</th>
+
+                    <th>Date of Birth</th>
+
+                    <th>Gender</th>
+
+                    <th>Phone Number</th>
+
+                    <th>Email</th>
+
+                    <th>Hire Date</th>
+
+                    <th>Department ID</th>
+
+                    <th>Position ID</th>
+
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (employees != null)
+                {
+                    @for (int i = 0; i < employees.Count; i++)
+                    {
+                        var item = employees[i];
+                        <tr data-id="@item.PhoneNumber">
+                            <td>@item.FullName</td>
+                            <td>@item.DateOfBirth?.ToString("dd/MM/yyyy")</td>
+                            <td>@item.Gender</td>
+                            <td>@item.PhoneNumber</td>
+                            <td>@item.Email</td>
+                            <td>@item.HireDate?.ToString("dd/MM/yyyy")</td>
+                            <td>@item.DepartmentID</td>
+                            <td>@item.PositionID</td>
+                            <td class="text-center">
+                                <div class="btn btn-sm btn-danger delete-btn">Remove</div>
+                            </td>
+
+                            <!-- Hidden inputs để gửi dữ liệu -->
+                            <input type="hidden" name="employees_SqlServer[@i].FullName" value="@item.FullName" />
+                            <input type="hidden" name="employees_SqlServer[@i].DateOfBirth" value="@item.DateOfBirth?.ToString("yyyy-MM-dd")" />
+                            <input type="hidden" name="employees_SqlServer[@i].Gender" value="@item.Gender" />
+                            <input type="hidden" name="employees_SqlServer[@i].PhoneNumber" value="@item.PhoneNumber" />
+                            <input type="hidden" name="employees_SqlServer[@i].Email" value="@item.Email" />
+                            <input type="hidden" name="employees_SqlServer[@i].HireDate" value="@item.HireDate?.ToString("yyyy-MM-dd")" />
+                            <input type="hidden" name="employees_SqlServer[@i].DepartmentID" value="@item.DepartmentID" />
+                            <input type="hidden" name="employees_SqlServer[@i].PositionID" value="@item.PositionID" />
+                            <input type="hidden" name="employees_SqlServer[@i].Status" value="active" />
+                            <input type="hidden" name="employees_SqlServer[@i].CreatedDate" value="@DateTime.Now.ToString()" />
+                            <input type="hidden" name="employees_SqlServer[@i].CreatedBy" value="@DateTime.Now.ToString()" />
+                        </tr>
+                    }
+
+                }
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const table = document.getElementById("employeeTable");
+
+                        table.addEventListener("click", function (e) {
+                            if (e.target && e.target.classList.contains("delete-btn")) {
+                                const row = e.target.closest("tr");
+                                const id = row.getAttribute("data-id");
+
+
+                                row.remove();
+
+                            }
+                        });
+                    });
+                </script>
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <div id="errorMessage" class="alert alert-danger text-start">
+        @{
+            if (ViewBag.DuplicatePhoneNumbersInFile != null)
+            {
+                @foreach (var error in ViewBag.DuplicatePhoneNumbersInFile)
+                {
+                    <span>Duplicate Phone Number in file: @error</span>
+
+                    <br />
+                }
+            }
+            if (ViewBag.DuplicateEmailsInFile != null)
+            {
+                @foreach (var error in ViewBag.DuplicateEmailsInFile)
+                {
+                    <span>Duplicate Email in file: @error</span>
+
+                    <br />
+                }
+            }
+
+            if (ViewBag.DuplicatePhoneNumbersInDatabase != null)
+            {
+                @foreach (var error in ViewBag.DuplicatePhoneNumbersInDatabase)
+                {
+                    <span>Duplicate Phone Number in Database: @error</span>
+
+                    <br />
+                }
+            }
+
+            if (ViewBag.DuplicateEmailsInDatabase != null)
+            {
+                @foreach (var error in ViewBag.DuplicateEmailsInDatabase)
+                {
+                    <span>Duplicate Email in Database: @error</span>
+
+                    <br />
+                }
+            }
+
+        }
+
+
+    </div>
+
+
+    <div class="text-center my-4">
+        <div class="btn-group" role="group">
+            @{
+                bool hasErrors =
+                ViewBag.DuplicatePhoneNumbersInFile != null && ViewBag.DuplicatePhoneNumbersInFile.Count > 0
+                || ViewBag.DuplicateEmailsInFile != null && ViewBag.DuplicateEmailsInFile.Count > 0
+                || ViewBag.DuplicatePhoneNumbersInDatabase != null && ViewBag.DuplicatePhoneNumbersInDatabase.Count > 0
+                || ViewBag.DuplicateEmailsInDatabase != null && ViewBag.DuplicateEmailsInDatabase.Count > 0;
+
+                if (hasErrors == false)
+                {
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-save"></i> Save
+                    </button>
+                }
+            }
+
+            <a asp-controller="hr" asp-action="ImportExcel" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Back
+            </a>
+        </div>
+    </div>
+
+</form>
+
+

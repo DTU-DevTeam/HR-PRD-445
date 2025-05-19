@@ -71,10 +71,10 @@ const StackedBarChar = () => {
   };
 
   return (
-    <div className="chart-container">
-      <div className="chart-header">
+    <div className="stacked-container">
+      <div className="stacked-header">
         <h2>Total Salary by Unit</h2>
-        <div className="chart-controls">
+        <div className="stacked-controls">
           <div className="legend">
             <div className="legend-item">
               <label className="switch">

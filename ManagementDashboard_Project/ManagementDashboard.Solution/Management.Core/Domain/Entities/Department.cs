@@ -22,9 +22,9 @@ namespace ManagementDashboard.Core.Domain.Entities
     public class Department_MySql
     {
         [Key]
-        public int Department_ID { get; set; }
+        public int DepartmentID { get; set; }
 
-        public string? Department_Name { get; set; }
+        public string? DepartmentName { get; set; }
 
         
     }

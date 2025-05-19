@@ -38,7 +38,6 @@ const CircularProgressBar = ({ label, value, percentage, changeType, colors }) =
           <p className="progress-circle-value">{value}</p>
           <p className="progress-circle-percentage">
             {percentage}% {changeType}
-              // hien thi phan tram
           </p>
           <p className="progress-circle-description">Last month</p>
         </div>

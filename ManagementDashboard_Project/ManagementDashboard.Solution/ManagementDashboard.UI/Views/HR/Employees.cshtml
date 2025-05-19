@@ -15,7 +15,7 @@
                 <tr>
                     @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
                     { "ColumnName", nameof(Employee_SqlServer.EmployeeID) },
-                    { "DisplayName", "Employee ID" },
+                    { "DisplayName", "ID" },
                     })
 
                     @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
@@ -57,7 +57,7 @@
 
                     <th>Status</th>
 
-                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+             @*       @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
                     { "ColumnName", nameof(Employee_SqlServer.CreatedAt) },
                     { "DisplayName", "Created At" },
                     })
@@ -65,7 +65,7 @@
                     @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
                     { "ColumnName", nameof(Employee_SqlServer.UpdatedAt) },
                     { "DisplayName", "Updated At" },
-                    })
+                    })*@
 
                     <th>Options</th>
                 </tr>
@@ -76,32 +76,44 @@
                     <tr>
                         <td>@item.EmployeeID</td>
                         <td>@item.FullName</td>
-                        <td>@item.DateOfBirth.ToString("dd/MM/yyyy")</td>
+                        <td>@item.DateOfBirth?.ToString("dd/MM/yyyy")</td>
                         <td>@item.Gender</td>
                         <td>@item.PhoneNumber</td>
                         <td>@item.Email</td>
-                        <td>@item.HireDate.ToString("dd/MM/yyyy")</td>
+                        <td>@item.HireDate?.ToString("dd/MM/yyyy")</td>
                         <td>@item.DepartmentID</td>
                         <td>@item.PositionID</td>
                         <td>@item.Status</td>
-                        <td>@item.CreatedAt.ToString("dd/MM/yyyy")</td>
-                        <td>@item.UpdatedAt.ToString("dd/MM/yyyy")</td>
+                      @*  <td>@item.CreatedAt?.ToString("dd/MM/yyyy")</td>
+                    <td>@item.UpdatedAt?.ToString("dd/MM/yyyy")</td>*@
                         <td class="text-center">
-                            <a class="btn btn-sm btn-primary me-1" asp-controller="HR" asp-action="EditEmployee" asp-route-id="@item.EmployeeID">Edit</a>
-                            <a class="btn btn-sm btn-danger" asp-controller="HR" asp-action="DeleteEmployee" asp-route-id="@item.EmployeeID">Delete</a>
+                            <a class="btn btn-sm btn-primary me-1" asp-controller="HR" asp-action="EditEmployee" title="Edit" asp-route-id="@item.EmployeeID">E</a>
+                            <a class="btn btn-sm btn-danger" asp-controller="HR" asp-action="DeleteComfirm" title="Delete" asp-route-id="@item.EmployeeID">D</a>
                         </td>
                     </tr>
                 }
+               
             </tbody>
         </table>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["SuccessMessage"]
+            </div>
+        }
     </div>
 </form>
+
 
 <style>
     th, td {
         text-align: center;
         vertical-align: middle !important;
         white-space: nowrap;
+    }
+
+    a {
+        color: white;
     }
 
 </style>

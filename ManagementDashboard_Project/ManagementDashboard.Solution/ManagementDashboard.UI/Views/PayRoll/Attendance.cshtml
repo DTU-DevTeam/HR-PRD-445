@@ -1,0 +1,69 @@
+﻿@model List<Attendance_MySql>;
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+@{
+    ViewBag.CurrentUrl = "payroll/attendance";
+}
+
+<form asp-controller="payroll" asp-action="attendance" method="get">
+    <div class="table-responsive">
+        <table class="table table table-striped table-hover table-bordered align-middle text-center">
+            <thead class="table-dark text-center">
+                <tr>
+                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+                    { "ColumnName", nameof(Attendance_MySql.AttendanceID) },
+                    { "DisplayName", "Attendance ID" },
+                    })
+
+                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+                    { "ColumnName", nameof(Attendance_MySql.EmployeeID) },
+                    { "DisplayName", "Employee ID" },
+                    })
+
+                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+                    { "ColumnName", nameof(Attendance_MySql.WorkDays) },
+                    { "DisplayName", "Work Days" },
+                    })
+
+                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+                    { "ColumnName", nameof(Attendance_MySql.AbsentDays) },
+                    { "DisplayName", "Absent Days" },
+                    })
+
+                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+                    { "ColumnName", nameof(Attendance_MySql.LeaveDays) },
+                    { "DisplayName", "Leave Days" },
+                    })
+
+                    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+                    { "ColumnName", nameof(Attendance_MySql.AttendanceMonth) },
+                    { "DisplayName", "Attendance Month" },
+                    })
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.AttendanceID</td>
+                        <td>@item.EmployeeID</td>
+                        <td>@item.WorkDays</td>
+                        <th>@item.LeaveDays</th>
+                        <th>@item.AbsentDays</th>
+                        <td>@item.AttendanceMonth.ToString("dd/MM/yyyy")</td>
+                       
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</form>
+
+<style>
+    a {
+        color: white;
+    }
+</style>
+
+

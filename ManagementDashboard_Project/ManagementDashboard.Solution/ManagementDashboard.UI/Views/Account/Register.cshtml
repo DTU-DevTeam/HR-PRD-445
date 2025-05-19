@@ -1,0 +1,205 @@
+﻿@using Management.Core.Dto.Requests
+@model Register_Request;
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Đăng ký</title>
+    <style>
+       
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .register-container {
+            background-color: #fff;
+            padding: 40px 30px 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            width: 360px;
+        }
+
+            .register-container h2 {
+                text-align: center;
+                margin-bottom: 25px;
+                font-weight: 700;
+                color: #4a3cdb;
+                letter-spacing: 1.2px;
+            }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 12px 15px;
+            margin-bottom: 18px;
+            border: 1.8px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+            input[type="text"]:focus,
+            input[type="email"]:focus,
+            input[type="password"]:focus {
+                outline: none;
+                border-color: #4a3cdb;
+                box-shadow: 0 0 5px rgba(74, 60, 219, 0.5);
+            }
+
+        .access-control {
+            margin-bottom: 20px;
+        }
+
+        .access-control-label {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #4a3cdb;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #4a3cdb;
+        }
+
+        button[type="submit"] {
+            padding: 13px;
+            background-color: #4a3cdb;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+            button[type="submit"]:hover {
+                background-color: #392fc4;
+            }
+
+        .link {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+            .link a {
+                color: #4a3cdb;
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+                .link a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Register</h2>
+        <form asp-action="Register" asp-controller="Account" method="post">
+            <input type="text" asp-for="UserName" placeholder="Tên đăng nhập" required />
+            <input type="email" asp-for="Email" placeholder="Email" required />
+            <input type="password" asp-for="Password" placeholder="Mật khẩu" required />
+            <input type="password" asp-for="ConfirmPassword" placeholder="Xác nhận mật khẩu" required />
+
+            <div class="access-control">
+                <div class="access-control-label">Access Controll</div>
+                <div class="checkbox-group">
+                    <label class="checkbox-item">
+                        <input type="checkbox" asp-for="Payroll" value="true" />
+                        Payroll
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" asp-for="HumanResource" value="true" />
+                        Human Resource
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" asp-for="Manager" value="true" />
+                        Manager
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+        <div class="link">
+            <p>Have an account? <a href="/login">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.querySelector('form');
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const readOnlyCheckbox = document.querySelector('input[type="checkbox"][value="ReadOnly"]');
+
+        
+        function isOtherChecked() {
+            return Array.from(checkboxes).some(cb => cb !== readOnlyCheckbox && cb.checked);
+        }
+
+       
+        function isAnyChecked() {
+            return Array.from(checkboxes).some(cb => cb.checked);
+        }
+
+        
+        form.addEventListener('submit', (e) => {
+            const isReadOnlyChecked = readOnlyCheckbox.checked;
+
+            if (!isAnyChecked()) {
+                e.preventDefault();
+                alert('Bạn phải chọn ít nhất một quyền truy cập.');
+                return;
+            }
+
+            if (isReadOnlyChecked && !isOtherChecked()) {
+                e.preventDefault();
+                alert('Khi chọn "ReadOnly", bạn phải chọn ít nhất một quyền khác.');
+                return;
+            }
+        });
+    });
+</script>
+
+

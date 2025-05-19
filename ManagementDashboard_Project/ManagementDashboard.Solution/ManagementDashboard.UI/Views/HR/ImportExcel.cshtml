@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Import File</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .import-container {
+            border: 2px dashed #ccc;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        #fileName {
+            margin-top: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <form asp-controller="hr" asp-action="ExcelFileReader" method="post" enctype="multipart/form-data">
+        <div class="import-container">
+            <h2>Nhập File</h2>
+            <input type="file" id="fileInput" name="file" />
+            <p id="fileName">Chưa chọn file nào</p>
+            <button type="submit" class="btn btn-primary">Import file Excel</button>
+        </div>
+    </form>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const fileNameDisplay = document.getElementById('fileName');
+
+        fileInput.addEventListener('change', function () {
+            if (fileInput.files.length > 0) {
+                fileNameDisplay.textContent = "Đã chọn: " + fileInput.files[0].name;
+            } else {
+                fileNameDisplay.textContent = "Chưa chọn file nào";
+            }
+        });
+    </script>
+</body>
+</html>
+
